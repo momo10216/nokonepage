@@ -80,84 +80,17 @@ if (isset($_GET['styleId'])) {
 	$templateParams = JFactory::getApplication()->getTemplate(true)->params;
 } else {
 	$templateParams = JFactory::getApplication()->getTemplate(true)->params;
-	$varnames = array('templateColor',
-'templateForegroundColor',
-'templateLinkColor',
-'templateLinkDecoration',
-'templateButtonBackgroundColor',
-'templateButtonBackgroundOpacity',
-'templateButtonTextColor',
-'templateButtonBorderColor',
-'googleFont',
-'googleFontName',
-'templateFontSize',
-'fluidContainer',
+	$varnames = array('templateFontSize',
 'templateRadius',
 'faviconFile',
-'templateParagraphMarginTop',
-'templateParagraphMarginBottom',
-'bodyBackgroundColor',
-'bodyBackgroundFile',
-'bodyBackgroundRepeat',
-'bodyBackgroundAttachment',
-'bodyBackgroundPosition',
-'headerBackgroundColor',
-'headerBackgroundOpacity',
-'menuType',
-'menuBackgroundColor',
-'menuFontSize',
-'menuBackgroundOpacity',
-'menuEntryBackgroundColor',
-'menuEntryForegroundColor',
-'menuEntryRadius',
-'menuEntryHorizontalSpacing',
-'menuEntryFocusBackgroundColor',
-'menuEntryFocusForegroundColor',
-'menuEntryHoverBackgroundColor',
-'menuEntryHoverForegroundColor',
-'menuChildBackgroundColor',
-'menuChildForegroundColor',
-'menuChildFocusBackgroundColor',
-'menuChildFocusForegroundColor',
-'menuChildHoverBackgroundColor',
-'menuChildHoverForegroundColor',
-'menuChildBorderColor',
-'menuMobileType',
-'contentBackgroundColor',
-'contentBackgroundOpacity',
-'contentBackgroundFile',
-'contentBackgroundRepeat',
-'contentBackgroundAttachment',
-'contentBackgroundPosition',
-'contentBorderType',
-'contentBorderSize',
-'contentBorderColor',
-'moduleBackgroundColor',
-'moduleBackgroundOpacity',
-'moduleBorderType',
-'moduleBorderSize',
-'moduleBorderColor',
-'modulePaddingSize',
-'moduleTitleIcon',
-'moduleTitleDecoration',
-'footerBackgroundColor',
-'footerBackgroundOpacity',
-'footerBackgroundFile',
-'footerBackgroundRepeat',
-'footerBackgroundAttachment',
-'footerBackgroundPosition',
-'footerBorderType',
-'footerBorderSize',
-'footerBorderColor',
-'cssTemplate',
-'cssPage');
+'menuPosition'
+);
 	$params = array();
 	foreach($varnames as $varname) {
 		$params[$varname] = $templateParams->get($varname);
 	}
 }
+if (!isset($params['templateRadius']) || empty($params['templateRadius'])) { $params['templateRadius'] = '0'; }
 if (!isset($params['templateFontSize']) || empty($params['templateFontSize'])) { $params['templateFontSize'] = '12'; }
-if (!isset($params['templateParagraphMarginTop']) || empty($params['templateParagraphMarginTop'])) { $params['templateParagraphMarginTop'] = '0'; }
-if (!isset($params['templateParagraphMarginBottom']) || empty($params['templateParagraphMarginBottom'])) { $params['templateParagraphMarginBottom'] = '1'; }
-if (!isset($params['menuFontSize']) || empty($params['menuFontSize'])) { $params['menuFontSize'] = '12'; }
+if (!isset($params['menuPosition']) || empty($params['menuPosition'])) { $params['menuPosition'] = '1'; }
 ?>
