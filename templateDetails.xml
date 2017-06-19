@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
+<extension version="3.1" type="template" client="site" method="upgrade">
+	<name>NoK-OnePage</name>
+	<version>1.0.0</version>
+	<creationDate>06/19/2017</creationDate>
+	<author>Norbert Kuemin</author>
+	<authorEmail>norbert@kuem.in</authorEmail>
+	<copyright>Copyright (C) 2017 GPL V3. All rights reserved.</copyright>
+	<description>
+		&lt;p&gt;NoK-OnePage is a template using the onepage design.&lt;/p&gt;
+		&lt;p&gt;NoK-OnePage ist ein Template f&amp;r die Nutzung des OnaePage-Designes.&lt;/p&gt;
+	</description>
+	<files>
+		<filename>component.php</filename>
+		<filename>error.php</filename>
+		<filename>index.html</filename>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<filename>template_preview.png</filename>
+		<filename>template_thumbnail.png</filename>
+		<folder>css</folder>
+		<folder>html</folder>
+		<folder>images</folder>
+		<folder>js</folder>
+		<folder>language</folder>
+	</files>
+	<positions>
+		<position>debug</position>
+		<position>position-0</position>
+		<position>position-1</position>
+		<position>position-2</position>
+		<position>position-3</position>
+		<position>position-4</position>
+		<position>position-5</position>
+		<position>position-6</position>
+	</positions>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.tpl_nok-onepage.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_nok-onepage.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_nok-onepage.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_nok-onepage.sys.ini</language>
+	</languages>
+	<config>
+		<fields name="params">
+			<fieldset name="common" label="TPL_NOK-ONEPAGE_COMMON_LABEL">
+				<field name="templateMenu" class="" type="menu" default=""
+					label="TPL_NOK-ONEPAGE_MENU_LABEL"
+					description="TPL_NOK-ONEPAGE_MENU_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="2" name="NoK OnePage Updates">http://kuem.in/joomlaupdate/tpl_nokonepage.xml</server>
+	</updateservers>
+</extension>
