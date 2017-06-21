@@ -9,7 +9,7 @@
 
 defined('_JEXEC') or die;
 
-function detectNoHoverDevice(){
+function detectNoHoverDevice() {
 	global $_SERVER;
 	if (!isset($_SERVER['HTTP_USER_AGENT'])) { return true; }
 	$agent = $_SERVER['HTTP_USER_AGENT'];
@@ -33,12 +33,24 @@ function detectNoHoverDevice(){
 	return false;
 }
 
-function getAlternateTemplateStyleId(){
+function getAlternateTemplateStyleId() {
 	$activeMenu = JFactory::getApplication()->getMenu()->getActive();
 	if (is_null($activeMenu)) { return ''; }
 	$templateStyleId = $activeMenu->template_style_id;
 	if (empty($templateStyleId) || ($templateStyleId == '0')) { return ''; }
 	return $templateStyleId;
+}
+
+function displayMenu() {
+?>
+<nav class="navigation" role="navigation">
+	<div class="navbar">
+		<div class="navbar-inner">
+			<jdoc:include type="modules" name="position-1" style="none"/>
+		</div>
+	</div>
+</nav>
+<?php
 }
 
 // Getting global params from template
@@ -48,6 +60,10 @@ $params = $app->getTemplate(true)->params;
 $doc = JFactory::getDocument();
 $this->language = $doc->language;
 $this->direction = $doc->direction;
+$menuPosition = $this->params->get('menuPosition');
+if (empty($menuPosition)) { $menuPosition = "1"; }
+$menuPositionFirstLast = strtolower($this->params->get('menuPositionFirstLast'));
+if (empty($menuPositionFirstLast)) { $menuPositionFirstLast = "first"; }
 
 // Detecting Active Variables
 $option   = $app->input->getCmd('option', '');
@@ -57,12 +73,9 @@ $task     = $app->input->getCmd('task', '');
 $itemid   = $app->input->getCmd('Itemid', '');
 $sitename = $app->getCfg('sitename');
 
-if($task == "edit" || $layout == "form" )
-{
+if($task == "edit" || $layout == "form" ) {
 	$fullWidth = 1;
-}
-else
-{
+} else {
 	$fullWidth = 0;
 }
 
@@ -86,8 +99,8 @@ JHtml::_('bootstrap.loadCss', false, $this->direction);
 $user = JFactory::getUser();
 
 // Check modules
-$showBottom      = ($this->countModules('position-1') or $this->countModules('position-2') or $this->countModules('position-3'));
-$showBottom      = ($this->countModules('position-4') or $this->countModules('position-5') or $this->countModules('position-6'));
+$showTop      = ($this->countModules('position-1') or $this->countModules('position-2') or $this->countModules('position-3'));
+$showBottom   = ($this->countModules('position-4') or $this->countModules('position-5') or $this->countModules('position-6'));
 
 // Adjusting content width
 $span = "span12";
@@ -142,96 +155,60 @@ $span = "span12";
 ?>">
 
 	<!-- Body -->
-	<div class="body">
+	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
 					<?php if ($this->countModules('position-0')) : ?>
 					<div class="header-search pull-right">
+						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 						<jdoc:include type="modules" name="position-0" style="none" />
+						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 					</div>
 					<?php endif; ?>
+				</div>
+				<div id="top">
+					<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+					<jdoc:include type="modules" name="position-1" style="none" />
+					<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+					<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+					<jdoc:include type="modules" name="position-2" style="none" />
+					<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+					<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+					<jdoc:include type="modules" name="position-3" style="none" />
+					<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 				</div>
 			</header>
-			<?php if ($this->countModules('position-1')) : ?>
-			<nav class="navigation" role="navigation">
-				<div class="navbar">
-					<div class="navbar-inner">
-						<?php if (($menuMobileType == "nav-btn-left") || ($menuMobileType == "nav-btn-right")) : ?>
-						<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
-						<div class="nav-collapse collapse">
-							<jdoc:include type="modules" name="position-1" style="none"/>
-						</div>
-						<?php else: ?>
-						<jdoc:include type="modules" name="position-1" style="none"/>
-						<?php endif; ?>
-					</div>
-				</div>
-			</nav>
-			<?php endif; ?>
-			<?php if ($this->countModules('position-2')) : ?>
-			<div id="breadcrumbs">
-				<jdoc:include type="modules" name="position-2" style="none" />
-			</div>
-			<?php endif; ?>
-			<jdoc:include type="modules" name="banner" style="xhtml" />
 			<div class="row-fluid">
-				<?php if ($showLeftColumn) : ?>
-				<!-- Begin Sidebar -->
-				<div id="sidebar" class="span3">
-					<div class="sidebar-nav">
-						<jdoc:include type="modules" name="position-7" style="xhtml" />
-						<jdoc:include type="modules" name="position-4" style="xhtml" />
-						<jdoc:include type="modules" name="position-5" style="xhtml" />
-					</div>
-				</div>
-				<!-- End Sidebar -->
-				<?php endif; ?>
 				<main id="content" role="main" class="<?php echo $span;?>">
 					<!-- Begin Content -->
-					<?php if ($this->countModules('position-12')) : ?>
-					<div id="top">
-						<jdoc:include type="modules" name="position-12" />
-					</div>
-					<?php endif; ?>
 					<jdoc:include type="message" />
 					<jdoc:include type="component" />
-					<jdoc:include type="modules" name="position-14" style="none" />
 					<!-- End Content -->
 				</main>
-				<?php if ($showRightColumn) : ?>
-				<div id="aside" class="span3">
-					<!-- Begin Right Sidebar -->
-					<jdoc:include type="modules" name="position-6" style="well" />
-					<jdoc:include type="modules" name="position-8" style="well" />
-					<jdoc:include type="modules" name="position-3" style="well" />
-					<!-- End Right Sidebar -->
-				</div>
-				<?php endif; ?>
 			</div>
 		</div>
-	</div>
-	<!-- Footer -->
-	<footer class="footer" role="contentinfo">
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
+		<!-- Footer -->
+		<footer class="footer" role="contentinfo">
+			<?php if ($showBottom) : ?>
 			<hr />
 			<div id="bottom">
-				<jdoc:include type="modules" name="position-9" style="none" />
-				<jdoc:include type="modules" name="position-10" style="none" />
-				<jdoc:include type="modules" name="position-11" style="none" />
+				<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+				<jdoc:include type="modules" name="position-4" style="none" />
+				<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+				<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+				<jdoc:include type="modules" name="position-5" style="none" />
+				<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+				<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+				<jdoc:include type="modules" name="position-6" style="none" />
+				<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 			</div>
 			<p class="pull-right">
-				<a href="#top" id="back-top">
-					<?php echo JText::_('TPL_NOK-GENERIC_BACKTOTOP'); ?>
-				</a>
+				<a href="#top" id="back-top"><?php echo JText::_('TPL_NOK-ONEPAGE_BACKTOTOP'); ?></a>
 			</p>
-		</div>
-	</footer>
+		</footer>
+	</div>
 	<jdoc:include type="modules" name="debug" style="none" />
 </body>
 </html>

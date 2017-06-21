@@ -1,3 +1,19 @@
 - Display menu:
 	- Select position
 
+
+See:
+https://forum.joomla.org/viewtopic.php?f=428&t=757010
+https://extensions.joomla.org/extensions/extension/core-enhancements/coding-a-scripts-integration/include-component/
+
+Code:
+	$app = JFactory::getApplication();
+	$menu   = $app->getMenu($menuname);
+	$currentMenuId = $menu->getActive()->id;
+	$items = $menu->getMenu();
+print_r($items);
+	foreach($menuItems as $menuItem) {
+		$menu->setActive($menuItem->id);
+	}
+	$menu->setActive($currentMenuId);
+
