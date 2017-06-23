@@ -206,16 +206,23 @@ $span = "span12";
 	$items = $menu->getItems('template_style_id',$styleId);
 	foreach($items as $i => $item) {
 		$menuId = $item->id;
+print_r($item->query);
 		$componentName = $item->query['option'];
 		$viewName = $item->query['view'];
 		$id = $item->query['id'];
 		$format = $item->query['format'];
+		if (empty($format)) { $format = 'html'; }
 		$menu->setActive($menuId);
-		$controller = JControllerLegacy::getInstance($componentName);
-//		$view = $component->getView($viewName);
-//		$view->display();
+		$app->input->set('option',$componentName);
+		$controller = JControllerLegacy::getInstance('NoKPrjMgnt');
 print_r($controller);
 echo '<p></p>';
+/*
+		$view = $controller->getView($viewName,$format);
+//		$view->display();
+print_r($view);
+echo '<p></p>';
+*/
 	}
 ?>
 					<!-- End Content -->
