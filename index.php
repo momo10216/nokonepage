@@ -53,6 +53,16 @@ function displayMenu() {
 <?php
 }
 
+function loadMenu($name) {
+	$db = JFactory::getDBO();
+	$query = $db->getQuery(true);
+	$query->select('*')
+		->from($db->quoteName('#__menu','m'))
+		->where('m.menutype = '.$db->quote($name));
+		$db->setQuery($query);
+	return $db->loadObjectList();
+}
+
 // Getting global params from template
 $styleId = getAlternateTemplateStyleId();
 $app = JFactory::getApplication();
@@ -99,7 +109,7 @@ JHtml::_('bootstrap.loadCss', false, $this->direction);
 $user = JFactory::getUser();
 
 // Check modules
-$showTop      = ($this->countModules('position-1') or $this->countModules('position-2') or $this->countModules('position-3'));
+$showTop      = ($this->countModules('position-0') or $this->countModules('position-1') or $this->countModules('position-2') or $this->countModules('position-3'));
 $showBottom   = ($this->countModules('position-4') or $this->countModules('position-5') or $this->countModules('position-6'));
 
 // Adjusting content width
@@ -157,53 +167,77 @@ $span = "span12";
 	<!-- Body -->
 	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
+			<?php if ($showTop) : ?>
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
 					<?php if ($this->countModules('position-0')) : ?>
 					<div class="header-search pull-right">
-						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+						<?php //if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 						<jdoc:include type="modules" name="position-0" style="none" />
-						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+						<?php //if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 					</div>
 					<?php endif; ?>
 				</div>
 				<div id="top">
-					<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+					<?php //if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 					<jdoc:include type="modules" name="position-1" style="none" />
-					<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
-					<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+					<?php //if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+					<?php //if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 					<jdoc:include type="modules" name="position-2" style="none" />
-					<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
-					<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+					<?php //if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+					<?php //if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 					<jdoc:include type="modules" name="position-3" style="none" />
-					<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+					<?php //if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 				</div>
 			</header>
+			<?php endif; ?>
 			<div class="row-fluid">
 				<main id="content" role="main" class="<?php echo $span;?>">
 					<!-- Begin Content -->
 					<jdoc:include type="message" />
-					<jdoc:include type="component" />
+					<!-- <jdoc:include type="component" /> -->
+<?php
+	global $_REQUEST;
+	$menu = &JSite::getMenu();
+	$app = JFactory::getApplication();
+	$styleId = $app->getTemplate(true)->id;
+	$currentMenuId = $menu->getActive()->id;
+	$items = $menu->getItems('template_style_id',$styleId);
+	foreach($items as $i => $item) {
+		$menuId = $item->id;
+		$componentName = $item->query['option'];
+		$viewName = $item->query['view'];
+		$id = $item->query['id'];
+		$format = $item->query['format'];
+		$menu->setActive($menuId);
+		$controller = JControllerLegacy::getInstance($componentName);
+//		$view = $component->getView($viewName);
+//		$view->display();
+print_r($controller);
+echo '<p></p>';
+	}
+?>
 					<!-- End Content -->
 				</main>
 			</div>
 		</div>
 		<!-- Footer -->
 		<footer class="footer" role="contentinfo">
-			<?php if ($showBottom) : ?>
 			<hr />
+			<?php if ($showBottom) : ?>
 			<div id="bottom">
-				<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+				<?php //if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 				<jdoc:include type="modules" name="position-4" style="none" />
-				<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
-				<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+				<?php //if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+				<?php //if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 				<jdoc:include type="modules" name="position-5" style="none" />
-				<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
-				<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
+				<?php //if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+				<?php //if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
 				<jdoc:include type="modules" name="position-6" style="none" />
-				<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
+				<?php //if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 			</div>
+			<?php endif; ?>
 			<p class="pull-right">
 				<a href="#top" id="back-top"><?php echo JText::_('TPL_NOK-ONEPAGE_BACKTOTOP'); ?></a>
 			</p>
