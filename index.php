@@ -53,16 +53,6 @@ function displayMenu() {
 <?php
 }
 
-function loadMenu($name) {
-	$db = JFactory::getDBO();
-	$query = $db->getQuery(true);
-	$query->select('*')
-		->from($db->quoteName('#__menu','m'))
-		->where('m.menutype = '.$db->quote($name));
-		$db->setQuery($query);
-	return $db->loadObjectList();
-}
-
 // Getting global params from template
 $styleId = getAlternateTemplateStyleId();
 $app = JFactory::getApplication();
@@ -140,8 +130,7 @@ $span = "span12";
 	?>
 	<?php
 	// Write additional css information
-	if ($this->params->get('cssPage'))
-	{
+	if ($this->params->get('cssPage')) {
 	?>
 		<style type="text/css">
 <?php echo $params['cssPage']; ?>
@@ -205,24 +194,14 @@ $span = "span12";
 	$currentMenuId = $menu->getActive()->id;
 	$items = $menu->getItems('template_style_id',$styleId);
 	foreach($items as $i => $item) {
-		$menuId = $item->id;
-print_r($item->query);
-		$componentName = $item->query['option'];
-		$viewName = $item->query['view'];
-		$id = $item->query['id'];
-		$format = $item->query['format'];
-		if (empty($format)) { $format = 'html'; }
-		$menu->setActive($menuId);
-		$app->input->set('option',$componentName);
-		$controller = JControllerLegacy::getInstance('NoKPrjMgnt');
-print_r($controller);
-echo '<p></p>';
-/*
-		$view = $controller->getView($viewName,$format);
-//		$view->display();
-print_r($view);
-echo '<p></p>';
-*/
+		$uri = new JURI(JURI::Root().'/index.php');
+		$uri->setVar('Itemid',$item->id);
+		$uri->setVar('view',$item->query['view']);
+		$uri->setVar('option',$item->query['option']);
+		$uri->setVar('id',$item->query['id']);
+		$uri->setVar('tmpl','component');
+		echo $uri->toString().'<p>';
+//		index.php?option=com_content&view=article&id=1&tmpl=component
 	}
 ?>
 					<!-- End Content -->
