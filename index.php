@@ -53,6 +53,19 @@ function displayMenu() {
 <?php
 }
 
+function getTextBetween($text, $start, $end) {
+	return explode($end,explode($start,$text)[1])[0];
+}
+
+function displayEntry($url) {
+	$text = file_get_contents($url);
+	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
+	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
+	$content = preg_replace('/<h1>[\s]*Home[\s]*<\/h1>/', '', $content);
+//	echo $url.'<p>';
+	echo $content;
+}
+
 // Getting global params from template
 $styleId = getAlternateTemplateStyleId();
 $app = JFactory::getApplication();
@@ -163,20 +176,20 @@ $span = "span12";
 					<?php if ($this->countModules('position-0')) : ?>
 					<div class="header-search pull-right">
 						<?php //if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
-						<jdoc:include type="modules" name="position-0" style="none" />
+						<jdoc:include type="modules" name="onepage-0" style="none" />
 						<?php //if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 					</div>
 					<?php endif; ?>
 				</div>
 				<div id="top">
 					<?php //if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
-					<jdoc:include type="modules" name="position-1" style="none" />
+					<jdoc:include type="modules" name="onepage-1" style="none" />
 					<?php //if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 					<?php //if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
-					<jdoc:include type="modules" name="position-2" style="none" />
+					<jdoc:include type="modules" name="onepage-2" style="none" />
 					<?php //if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 					<?php //if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
-					<jdoc:include type="modules" name="position-3" style="none" />
+					<jdoc:include type="modules" name="onepage-3" style="none" />
 					<?php //if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 				</div>
 			</header>
@@ -200,8 +213,7 @@ $span = "span12";
 		$uri->setVar('option',$item->query['option']);
 		$uri->setVar('id',$item->query['id']);
 		$uri->setVar('tmpl','component');
-		echo $uri->toString().'<p>';
-//		index.php?option=com_content&view=article&id=1&tmpl=component
+		displayEntry($uri->toString());
 	}
 ?>
 					<!-- End Content -->
@@ -214,13 +226,13 @@ $span = "span12";
 			<?php if ($showBottom) : ?>
 			<div id="bottom">
 				<?php //if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
-				<jdoc:include type="modules" name="position-4" style="none" />
+				<jdoc:include type="modules" name="onepage-4" style="none" />
 				<?php //if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 				<?php //if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
-				<jdoc:include type="modules" name="position-5" style="none" />
+				<jdoc:include type="modules" name="onepage-5" style="none" />
 				<?php //if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 				<?php //if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu(); } ?>
-				<jdoc:include type="modules" name="position-6" style="none" />
+				<jdoc:include type="modules" name="onepage-6" style="none" />
 				<?php //if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu(); } ?>
 			</div>
 			<?php endif; ?>
