@@ -57,12 +57,12 @@ function getTextBetween($text, $start, $end) {
 	return explode($end,explode($start,$text)[1])[0];
 }
 
-function displayEntry($url) {
+function displayEntry($url, $menuTitle) {
 	$text = file_get_contents($url);
 	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
-	$content = preg_replace('/<h1>[\s]*Home[\s]*<\/h1>/', '', $content);
-//	echo $url.'<p>';
+	$content = preg_replace('/<h1>[\s]*'.$menuTitle.'[\s]*<\/h1>/', '', $content);
+//	echo $url.'<p>'.$menuTitle.'<p>';
 	echo $content;
 }
 
@@ -213,7 +213,7 @@ $span = "span12";
 		$uri->setVar('option',$item->query['option']);
 		$uri->setVar('id',$item->query['id']);
 		$uri->setVar('tmpl','component');
-		displayEntry($uri->toString());
+		displayEntry($uri->toString(), $menu->getActive()->title);
 	}
 ?>
 					<!-- End Content -->
