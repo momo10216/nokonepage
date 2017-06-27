@@ -1,10 +1,10 @@
 <?php
 /**
  * @package     Joomla.Site
- * @subpackage  Templates.nok-generic
+ * @subpackage  Templates.nok-onepage
  *
- * @copyright   Copyright (C) 2014 Norbert Kuemin. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2017 Norbert Kuemin. All rights reserved.
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
  */
 /*
 error_reporting(E_ALL);
@@ -291,43 +291,43 @@ a:focus {
 .navbar-static-top .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-	width: 940px;
+	width: <?php echo $params['containerWidth']; ?>px;
 }
 .span12 {
-	width: 940px;
+	width: <?php echo $params['containerWidth']; ?> ?>px;
 }
 .span11 {
-	width: 860px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*11); ?>px;
 }
 .span10 {
-	width: 780px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*10); ?>px;
 }
 .span9 {
-	width: 700px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*9); ?>px;
 }
 .span8 {
-	width: 620px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*8); ?>px;
 }
 .span7 {
-	width: 540px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*7); ?>px;
 }
 .span6 {
-	width: 460px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*6); ?>px;
 }
 .span5 {
-	width: 380px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*5); ?>px;
 }
 .span4 {
-	width: 300px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*4); ?>px;
 }
 .span3 {
-	width: 220px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*3); ?>px;
 }
 .span2 {
-	width: 140px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*2); ?>px;
 }
 .span1 {
-	width: 60px;
+	width: <?php echo intval(intval($params['containerWidth'])/12*1); ?>px;
 }
 .offset12 {
 	margin-left: 980px;
