@@ -69,7 +69,7 @@ function displayEntry($url, $alias, $menuTitle) {
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$menuTitle.'[\s]*<\/h1>/', '', $content);
 //	echo $url.'<p>'.$menuTitle.'<p>';
-	echo '<div name="'.$alias.'">'.$content.'</div>';
+	echo '<a name="'.$alias.'"><div name="'.$alias.'">'.$content.'</div></a>';
 }
 
 // Getting global params from template
