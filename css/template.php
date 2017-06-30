@@ -198,6 +198,16 @@ textarea {
 .clearfix:after {
 	clear: both;
 }
+#top-left, #top-middle, #top-right {
+	display: inline-block;
+}
+#bottom-left, #bottom-middle, #bottom-right {
+	display: inline-block;
+}
+#top-right, #bottom-right {
+	position:relative;
+	float:right;
+}
 .hide-text {
 	font: 0/0 a;
 	color: transparent;

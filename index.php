@@ -212,15 +212,21 @@ $span = "span12";
 					<?php endif; ?>
 				</div>
 				<div id="top">
-					<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
-					<jdoc:include type="modules" name="onepage-1" style="none" />
-					<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
-					<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
-					<jdoc:include type="modules" name="onepage-2" style="none" />
-					<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
-					<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
-					<jdoc:include type="modules" name="onepage-3" style="none" />
-					<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+					<div id="top-left">
+						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+						<jdoc:include type="modules" name="onepage-1" style="none" />
+						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+					</div>
+					<div id="top-middle">
+						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+						<jdoc:include type="modules" name="onepage-2" style="none" />
+						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+					</div>
+					<div id="top-right">
+						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+						<jdoc:include type="modules" name="onepage-3" style="none" />
+						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+					</div>
 				</div>
 			</header>
 			<?php endif; ?>
@@ -248,15 +254,21 @@ $span = "span12";
 			<hr />
 			<?php if ($showBottom) : ?>
 			<div id="bottom">
-				<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
-				<jdoc:include type="modules" name="onepage-4" style="none" />
-				<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
-				<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
-				<jdoc:include type="modules" name="onepage-5" style="none" />
-				<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
-				<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
-				<jdoc:include type="modules" name="onepage-6" style="none" />
-				<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+				<div id="bottom-left">
+					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+					<jdoc:include type="modules" name="onepage-4" style="none" />
+					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+				</div>
+				<div id="bottom-middle">
+					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+					<jdoc:include type="modules" name="onepage-5" style="none" />
+					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+				</div>
+				<div id="bottom-right">
+					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+					<jdoc:include type="modules" name="onepage-6" style="none" />
+					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+				</div>
 			</div>
 			<?php endif; ?>
 			<p class="pull-right">
