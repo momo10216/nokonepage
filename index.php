@@ -44,7 +44,6 @@ function getAlternateTemplateStyleId() {
 }
 
 function displayMenu($menuItems) {
-print_r($menuItems);
 ?>
 <nav class="navigation" role="navigation">
 	<div class="navbar">
@@ -52,18 +51,25 @@ print_r($menuItems);
 			<ul class="nav menu">
 <?php
 foreach($menuItems as $i => $item) {
-	$item->menu_image = $item->params->get('menu_image', '') ? htmlspecialchars($item->params->get('menu_image', ''), ENT_COMPAT, 'UTF-8', false) : '';
-	$linktype = $item->title;
-	if ($item->menu_image) {
-		$linktype = JHtml::_('image', $item->menu_image, $item->title);
-		if ($item->params->get('menu_text', 1)) {
-			$linktype .= ' <span class="image-title">' . $item->title . '</span>';
+	$linktype = '';
+	if ($item->params->get('menu_show', 1) == '1') {
+		$item->menu_image = $item->params->get('menu_image', '') ? htmlspecialchars($item->params->get('menu_image', ''), ENT_COMPAT, 'UTF-8', false) : '';
+		if ($item->params->get('menu_text', 1) == '1') {
+			$linktype = $item->title;
+		}
+		if ($item->menu_image) {
+			$linktype = JHtml::_('image', $item->menu_image, $item->title);
+			if ($item->params->get('menu_text', 1)) {
+				$linktype .= ' <span class="image-title">' . $item->title . '</span>';
+			}
 		}
 	}
-
+	if (!empty($linktype)) {
 ?>
 				<li class="item-<?php echo $item->alias; ?>"><a href="#<?php echo $item->alias; ?>"><?php echo $linktype; ?></a></li>
-<?php } ?>
+<?php
+	}
+} ?>
 			</ul>
 		</div>
 	</div>
