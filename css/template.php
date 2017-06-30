@@ -218,7 +218,7 @@ body {
 	font-family: Verdana, Helvetica, Arial, sans-serif;
 <?php if (!isNullOrEmpty($params,'templateFontSize')) : ?>
 	font-size: <?php echo $params['templateFontSize']; ?>px;
-    line-height: <?php echo intval(intval($params['templateFontSize'])*1.5); ?>px;
+	line-height: <?php echo intval(intval($params['templateFontSize'])*1.5); ?>px;
 <?php endif; ?>
 <?php if (!isNullOrEmpty($params,'templateForegroundColor')) : ?>
 	color: <?php echo $params['templateForegroundColor']; ?>;
@@ -569,8 +569,6 @@ a:focus {
 	background-color: <?php echo calcBackground($params['contentBackgroundColor'],''); ?>;
 <?php endif; ?>
 <?php endif; ?>
-	padding-right: 20px;
-	padding-left: 20px;
 	*zoom: 1;
 }
 .container-fluid:before,
