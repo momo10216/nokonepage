@@ -44,6 +44,11 @@ function getAlternateTemplateStyleId() {
 }
 
 function displayMenu($menuItems) {
+	if ($DEBUG) {
+		echo '<pre>';
+		print_r($menuItems);
+		echo '</pre>';
+	}
 ?>
 <nav class="navigation" role="navigation">
 	<div class="navbar">
@@ -81,16 +86,17 @@ function getTextBetween($text, $start, $end) {
 	return explode($end,explode($start,$text)[1])[0];
 }
 
-function displayEntry($url, $alias, $menuTitle) {
+function displayEntry($url, $alias, $menuTitle, $debug) {
 	$text = file_get_contents($url);
 	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$menuTitle.'[\s]*<\/h1>/', '', $content);
-//	echo $url.'<p>'.$menuTitle.'<p>';
+	if ($debug) { echo '<a href="'.$url.'" target="_new">Link</a>'; }
 	echo '<a name="'.$alias.'"><div name="'.$alias.'">'.$content.'</div></a>';
 }
 
 // Getting global params from template
+$debug = $this->params->get('debug') == '1' ? true : false;
 $styleId = getAlternateTemplateStyleId();
 $app = JFactory::getApplication();
 $params = $app->getTemplate(true)->params;
@@ -242,7 +248,7 @@ $span = "span12";
 		$uri->setVar('option',$item->query['option']);
 		$uri->setVar('id',$item->query['id']);
 		$uri->setVar('tmpl','component');
-		displayEntry($uri->toString(), $item->alias, $homeMenuTitle);
+		displayEntry($uri->toString(), $item->alias, $homeMenuTitle, $debug);
 	}
 ?>
 					<!-- End Content -->

@@ -118,6 +118,15 @@
 					type="integer" first="0" last="10" step="1" default="1"
 					label="TPL_NOK-ONEPAGE_PARAGRAPH_MARGIN_BOTTOM_LABEL"
 					description="TPL_NOK-ONEPAGE_PARAGRAPH_MARGIN_BOTTOM_DESC" />
+				<field name="debug"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="TPL_NOK-ONEPAGE_DEBUG_LABEL"
+					description="TPL_NOK-ONEPAGE_DEBUG_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
 			</fieldset>
 			<fieldset name="body" label="TPL_NOK-ONEPAGE_BODY_LABEL">
 				<field name="bodyBackgroundColor" class="" type="color" default=""
