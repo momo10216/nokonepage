@@ -172,6 +172,9 @@
 			</fieldset>
 
 			<fieldset name="menu" label="TPL_NOK-ONEPAGE_MENU_LABEL">
+				<field name="menuName" class="" type="menu" default="" hide_none="false"
+					label="TPL_NOK-ONEPAGE_MENU_NAME_LABEL"
+					description="TPL_NOK-ONEPAGE_MENU_NAME_DESC" />
 				<field name="menuType"
 					type="list"
 					default="block"
