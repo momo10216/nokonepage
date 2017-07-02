@@ -205,6 +205,7 @@ $span = "span12";
 	<!-- Body -->
 	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('containerType') ? '-fluid' : '');?>">
+			<a name="_top"></a>
 			<?php if ($showTop) : ?>
 			<!-- Header -->
 			<header class="header" role="banner">
@@ -278,7 +279,7 @@ $span = "span12";
 			</div>
 			<?php endif; ?>
 			<p class="pull-right">
-				<a href="#top" id="back-top"><?php echo JText::_('TPL_NOK-ONEPAGE_BACKTOTOP'); ?></a>
+				<a href="#_top" id="back-top"><?php echo JText::_('TPL_NOK-ONEPAGE_BACKTOTOP'); ?></a>
 			</p>
 		</footer>
 	</div>
