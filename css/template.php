@@ -223,6 +223,27 @@ textarea {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+.menuicon {
+	position: fixed;
+<?php if (($params['menuIconPosition'] == 'top-left') || ($params['menuIconPosition'] == 'top-right')) : ?>
+	top: 0px;
+<?php else: ?>
+	bottom: 0px;
+<?php endif; ?>
+<?php if (($params['menuIconPosition'] == 'top-left') || ($params['menuIconPosition'] == 'bottom-left')) : ?>
+	left: 0px;
+<?php else: ?>
+	right: 0px;
+<?php endif; ?>
+	padding: 5px;
+	font-size: <?php echo $params['menuFontSize']; ?>px;
+<?php if (!isNullOrEmpty($params,'menuIconForegroundColor')) : ?>
+	color: <?php echo $params['menuIconForegroundColor']; ?>;
+<?php endif; ?>
+<?php if (!isNullOrEmpty($params,'menuIconBackgroundColor')) : ?>
+	background-color: <?php echo $params['menuIconBackgroundColor']; ?>;
+<?php endif; ?>
+}
 body {
 	margin: 0;
 	font-family: Verdana, Helvetica, Arial, sans-serif;

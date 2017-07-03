@@ -193,7 +193,6 @@
 					<option value="bar">TPL_NOK-ONEPAGE_MENU_BAR</option>
 					<option value="tab">TPL_NOK-ONEPAGE_MENU_TAB</option>
 				</field>
-
 				<field name="menuPosition"
 					type="integer" first="0" last="6" step="1" default="0"
 					label="TPL_NOK-ONEPAGE_MENU_POSITION_LABEL"
@@ -206,7 +205,6 @@
 					<option value="first">TPL_NOK-ONEPAGE_MENU_FIRST</option>
 					<option value="last">TPL_NOK-ONEPAGE_MENU_LAST</option>
 				</field>
-
 				<field name="menuBackgroundColor" class="" type="color" default=""
 					label="TPL_NOK-ONEPAGE_MENU_BACKGROUND_COLOR_LABEL"
 					description="TPL_NOK-ONEPAGE_MENU_BACKGROUND_COLOR_DESC" />
@@ -263,7 +261,6 @@
 				<field name="menuChildBorderColor" class="" type="color" default="#CCCCCC"
 					label="TPL_NOK-ONEPAGE_MENUCHILD_BORDER_COLOR_LABEL"
 					description="TPL_NOK-ONEPAGE_MENUCHILD_BORDER_COLOR_DESC" />
-
 				<field name="menuMobileType"
 					type="list"
 					default="same"
@@ -275,6 +272,22 @@
 					<option value="nav-select-left">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVSELECTLEFT</option>
 					<option value="nav-select-right">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVSELECTRIGHT</option>
 				</field>
+				<field name="menuIconPosition"
+					type="list"
+					default="same"
+					label="TPL_NOK-ONEPAGE_MENU_ICON_POSITION_LABEL"
+					description="TPL_NOK-ONEPAGE_MENU_ICON_POSITION_DESC" >
+					<option value="top-left">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_TOP_LEFT</option>
+					<option value="top-right">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_TOP_RIGHT</option>
+					<option value="bottom-left">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_BOTTOM_LEFT</option>
+					<option value="bottom-right">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_BOTTOM_RIGHT</option>
+				</field>
+				<field name="menuIconBackgroundColor" class="" type="color" default="#DDDDDD"
+					label="TPL_NOK-ONEPAGE_MENUICON_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOK-ONEPAGE_MENUICON_BACKGROUND_COLOR_DESC" />
+				<field name="menuIconForegroundColor" class="" type="color" default="#000000"
+					label="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_DESC" />
 			</fieldset>
 
 			<fieldset name="content" label="TPL_NOK-ONEPAGE_CONTENT_LABEL">
