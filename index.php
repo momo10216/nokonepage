@@ -86,8 +86,7 @@ function getTextBetween($text, $start, $end) {
 	return explode($end,explode($start,$text)[1])[0];
 }
 
-function displayEntry($url, $alias, $menuTitle, $debug) {
-	$text = file_get_contents($url);
+function displayEntry($text, $alias, $menuTitle, $debug) {
 	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$menuTitle.'[\s]*<\/h1>/', '', $content);
@@ -105,6 +104,20 @@ function calcMenuLink($anchor, $text, $animation) {
 		default:
 			return '<a href="#'.$anchor.'">'.$text.'</a>';
 	}
+}
+
+function loadContent($menuItems) {
+	$result = array();
+	foreach($menuItems as $i => $item) {
+		$uri = new JURI(JURI::Root().'/index.php');
+		$uri->setVar('Itemid',$item->id);
+		$uri->setVar('view',$item->query['view']);
+		$uri->setVar('option',$item->query['option']);
+		$uri->setVar('id',$item->query['id']);
+		$uri->setVar('tmpl','component');
+		$result[$i] = file_get_contents($uri->toString());
+	}
+	return $result;
 }
 
 // Getting global params from template
@@ -133,6 +146,7 @@ $menuPosition = $this->params->get('menuPosition');
 if (empty($menuPosition)) { $menuPosition = "1"; }
 $menuPositionFirstLast = strtolower($this->params->get('menuPositionFirstLast'));
 if (empty($menuPositionFirstLast)) { $menuPositionFirstLast = "first"; }
+$content = loadContent($menuItems);
 
 if($task == "edit" || $layout == "form" ) {
 	$fullWidth = 1;
@@ -258,13 +272,7 @@ $span = "span12";
 					<jdoc:include type="message" />
 <?php
 	foreach($menuItems as $i => $item) {
-		$uri = new JURI(JURI::Root().'/index.php');
-		$uri->setVar('Itemid',$item->id);
-		$uri->setVar('view',$item->query['view']);
-		$uri->setVar('option',$item->query['option']);
-		$uri->setVar('id',$item->query['id']);
-		$uri->setVar('tmpl','component');
-		displayEntry($uri->toString(), $item->alias, $homeMenuTitle, $debug);
+		displayEntry($content[$i], $item->alias, $homeMenuTitle, $debug);
 	}
 ?>
 					<!-- End Content -->
