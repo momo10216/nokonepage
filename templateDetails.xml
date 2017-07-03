@@ -274,7 +274,7 @@
 				</field>
 				<field name="menuIconPosition"
 					type="list"
-					default="same"
+					default="bottom-left"
 					label="TPL_NOK-ONEPAGE_MENU_ICON_POSITION_LABEL"
 					description="TPL_NOK-ONEPAGE_MENU_ICON_POSITION_DESC" >
 					<option value="top-left">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_TOP_LEFT</option>
