@@ -1,9 +1,9 @@
 /**
  * @package     Joomla.Site
- * @subpackage  Templates.nok-generic
+ * @subpackage  Templates.nok-onepage
  *
- * @copyright   Copyright (C) 2014 Norbert Kuemin. All rights reserved.
- * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ * @copyright   Copyright (C) 2017 Norbert Kuemin. All rights reserved.
+ * @license     GNU General Public License version 3 or later; see LICENSE.txt
  */
 
 (function($)

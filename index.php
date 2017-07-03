@@ -43,7 +43,7 @@ function getAlternateTemplateStyleId() {
 	return $templateStyleId;
 }
 
-function displayMenu($menuItems) {
+function displayMenu($menuItems, $animation) {
 	if ($DEBUG) {
 		echo '<pre>';
 		print_r($menuItems);
@@ -71,7 +71,7 @@ foreach($menuItems as $i => $item) {
 	}
 	if (!empty($linktype)) {
 ?>
-				<li class="item-<?php echo $item->alias; ?>"><a href="#<?php echo $item->alias; ?>"><?php echo $linktype; ?></a></li>
+				<li class="item-<?php echo $item->id; ?>"><?php echo calcMenuLink($item->alias, $linktype, $animation); ?></li>
 <?php
 	}
 } ?>
@@ -92,7 +92,19 @@ function displayEntry($url, $alias, $menuTitle, $debug) {
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$menuTitle.'[\s]*<\/h1>/', '', $content);
 	if ($debug) { echo '<a href="'.$url.'" target="_new">Link</a>'; }
-	echo '<a name="'.$alias.'"></a><div name="'.$alias.'">'.$content.'</div>';
+	echo '<a name="'.$alias.'"></a><div>'.$content.'</div>';
+}
+
+function calcMenuLink($anchor, $text, $animation) {
+	switch ($animation) {
+		case 'scroll':
+//			return '<a href="#'.$anchor.'" onclick="scrollToAnchor(\''.$anchor.'\'); return false;">'.$text.'</a>';
+//			return '<a onclick="scrollToAnchor(\''.$anchor.'\');">'.$text.'</a>';
+			return '<a href="javascript:scrollToAnchor(\''.$anchor.'\');">'.$text.'</a>';
+		case 'jump':
+		default:
+			return '<a href="#'.$anchor.'">'.$text.'</a>';
+	}
 }
 
 // Getting global params from template
@@ -132,7 +144,9 @@ if($task == "edit" || $layout == "form" ) {
 JHtml::_('bootstrap.framework');
 JHtml::_('jquery.ui');
 $doc->addScript('templates/' .$this->template. '/js/template.js');
-
+if ($this->params->get('menuAnimation') == 'scroll') {
+	$doc->addScript('templates/' .$this->template. '/js/scrollto.js');
+}
 // Add Stylesheets
 $cssurl = 'templates/'.$this->template.'/css/template.php';
 if (!empty($styleId)) {$cssurl .= '?styleId='.$styleId; }
@@ -206,34 +220,34 @@ $span = "span12";
 	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('containerType') ? '-fluid' : '');?>">
 			<a name="_top"></a>
-			<div class="menuicon"><a href="#_top" id="back-top">&#9776;</a></div>
+			<div class="menuicon"><?php echo calcMenuLink('_top', '&#9776;', $this->params->get('menuAnimation')); ?></div>
 			<?php if ($showTop) : ?>
 			<!-- Header -->
 			<header class="header" role="banner">
 				<div class="header-inner clearfix">
 					<?php if ($this->countModules('position-0')) : ?>
 					<div class="header-search pull-right">
-						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 						<jdoc:include type="modules" name="onepage-0" style="none" />
-						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					</div>
 					<?php endif; ?>
 				</div>
 				<div id="top">
 					<div id="top-left">
-						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 						<jdoc:include type="modules" name="onepage-1" style="none" />
-						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					</div>
 					<div id="top-middle">
-						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 						<jdoc:include type="modules" name="onepage-2" style="none" />
-						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					</div>
 					<div id="top-right">
-						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 						<jdoc:include type="modules" name="onepage-3" style="none" />
-						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					</div>
 				</div>
 			</header>
@@ -263,19 +277,19 @@ $span = "span12";
 			<?php if ($showBottom) : ?>
 			<div id="bottom">
 				<div id="bottom-left">
-					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					<jdoc:include type="modules" name="onepage-4" style="none" />
-					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 				</div>
 				<div id="bottom-middle">
-					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					<jdoc:include type="modules" name="onepage-5" style="none" />
-					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 				</div>
 				<div id="bottom-right">
-					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems); } ?>
+					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					<jdoc:include type="modules" name="onepage-6" style="none" />
-					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems); } ?>
+					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 				</div>
 			</div>
 			<?php endif; ?>

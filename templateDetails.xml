@@ -288,6 +288,14 @@
 				<field name="menuIconForegroundColor" class="" type="color" default="#000000"
 					label="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_LABEL"
 					description="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_DESC" />
+				<field name="menuAnimation"
+					type="list"
+					default="jump"
+					label="TPL_NOK-ONEPAGE_MENU_ANIMATION_LABEL"
+					description="TPL_NOK-ONEPAGE_MENU_ANIMATION_DESC" >
+					<option value="jump">TPL_NOK-ONEPAGE_MENU_ANIMATION_JUMP</option>
+					<option value="scroll">TPL_NOK-TPL_NOK-ONEPAGE_MENU_ANIMATION_SCROLL</option>
+				</field>
 			</fieldset>
 
 			<fieldset name="content" label="TPL_NOK-ONEPAGE_CONTENT_LABEL">
