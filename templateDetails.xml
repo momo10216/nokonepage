@@ -202,8 +202,8 @@
 					default="first"
 					label="TPL_NOK-ONEPAGE_MENU_POSITION_FIRST_LAST_LABEL"
 					description="TPL_NOK-ONEPAGE_MENU_POSITION_FIRST_LAST_DESC" >
-					<option value="first">TPL_NOK-ONEPAGE_MENU_FIRST</option>
-					<option value="last">TPL_NOK-ONEPAGE_MENU_LAST</option>
+					<option value="first">TPL_NOK-ONEPAGE_MENU_POSITION_FIRST</option>
+					<option value="last">TPL_NOK-ONEPAGE_MENU_POSITION_LAST</option>
 				</field>
 				<field name="menuBackgroundColor" class="" type="color" default=""
 					label="TPL_NOK-ONEPAGE_MENU_BACKGROUND_COLOR_LABEL"
@@ -275,12 +275,12 @@
 				<field name="menuIconPosition"
 					type="list"
 					default="bottom-left"
-					label="TPL_NOK-ONEPAGE_MENU_ICON_POSITION_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_ICON_POSITION_DESC" >
-					<option value="top-left">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_TOP_LEFT</option>
-					<option value="top-right">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_TOP_RIGHT</option>
-					<option value="bottom-left">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_BOTTOM_LEFT</option>
-					<option value="bottom-right">TPL_NOK-ONEPAGE_MENU_ICON_POSITION_BOTTOM_RIGHT</option>
+					label="TPL_NOK-ONEPAGE_MENUICON_POSITION_LABEL"
+					description="TPL_NOK-ONEPAGE_MENUICON_POSITION_DESC" >
+					<option value="top-left">TPL_NOK-ONEPAGE_MENUICON_POSITION_TOP_LEFT</option>
+					<option value="top-right">TPL_NOK-ONEPAGE_MENUICON_POSITION_TOP_RIGHT</option>
+					<option value="bottom-left">TPL_NOK-ONEPAGE_MENUICON_POSITION_BOTTOM_LEFT</option>
+					<option value="bottom-right">TPL_NOK-ONEPAGE_MENUICON_POSITION_BOTTOM_RIGHT</option>
 				</field>
 				<field name="menuIconBackgroundColor" class="" type="color" default="#DDDDDD"
 					label="TPL_NOK-ONEPAGE_MENUICON_BACKGROUND_COLOR_LABEL"
@@ -294,7 +294,7 @@
 					label="TPL_NOK-ONEPAGE_MENU_ANIMATION_LABEL"
 					description="TPL_NOK-ONEPAGE_MENU_ANIMATION_DESC" >
 					<option value="jump">TPL_NOK-ONEPAGE_MENU_ANIMATION_JUMP</option>
-					<option value="scroll">TPL_NOK-TPL_NOK-ONEPAGE_MENU_ANIMATION_SCROLL</option>
+					<option value="scroll">TPL_NOK-ONEPAGE_MENU_ANIMATION_SCROLL</option>
 				</field>
 			</fieldset>
 
