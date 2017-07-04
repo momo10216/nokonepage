@@ -120,6 +120,46 @@ function loadContent($menuItems) {
 	return $result;
 }
 
+function setScript($menuItems, $content, $doc) {
+	$dom = new DOMDocument();
+	foreach($menuItems as $i => $item) {
+		if ($dom->loadHTML($content[$i])) {
+			$scriptElementList = $dom->getElementsByTagName('script');
+			if ($scriptElementList->length > 0) {
+				for($i=0 ; $i<$scriptElementList->length ; $i++) {
+					$scriptElement = $scriptElementList->item($i);
+					$src = explode('?',$scriptElement->getAttribute('src'))[0];
+					if (!empty($src)) {
+						if (in_array($src, array_keys($doc->_scripts)) === false) {
+							$doc->addScript($src);
+						}
+					} else {
+						if (stripos($doc->_script['text/javascript'], $scriptElement->textContent) === false) {
+							$doc->addScriptDeclaration($scriptElement->textContent);
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+function setCss($menuItems, $content, $doc) {
+	$dom = new DOMDocument();
+	foreach($menuItems as $i => $item) {
+		if ($dom->loadHTML($content[$i])) {
+			while ($scriptElement = $dom->getElementsByTagName('link')) {
+				$src = $scriptElement->getAttribute('href');
+				if (!empty($src)) {
+					$doc->addStyleSheet($src);
+				} else {
+					$doc->addStyleDeclaration($scriptElement->textContent);
+				}
+			}
+		}
+	}
+}
+
 // Getting global params from template
 $debug = $this->params->get('debug') == '1' ? true : false;
 $styleId = getAlternateTemplateStyleId();
@@ -161,6 +201,8 @@ $doc->addScript('templates/' .$this->template. '/js/template.js');
 if ($this->params->get('menuAnimation') == 'scroll') {
 	$doc->addScript('templates/' .$this->template. '/js/scrollto.js');
 }
+setScript($menuItems, $content, $doc);
+
 // Add Stylesheets
 $cssurl = 'templates/'.$this->template.'/css/template.php';
 if (!empty($styleId)) {$cssurl .= '?styleId='.$styleId; }
@@ -168,6 +210,7 @@ $doc->addStyleSheet($cssurl);
 if (detectNoHoverDevice()) {
 	$doc->addStyleSheet('templates/'.$this->template.'/css/template_nohover.php');
 }
+//setCss($menuItems, $content, $doc);
 
 // Load optional RTL Bootstrap CSS
 JHtml::_('bootstrap.loadCss', false, $this->direction);
@@ -229,6 +272,7 @@ $span = "span12";
 	. ($itemid ? ' itemid-' . $itemid : '')
 	. ($params->get('containerType') ? ' fluid' : '');
 ?>">
+<?php //setScript($menuItems, $content, $doc); ?>
 
 	<!-- Body -->
 	<div class="body" name="top">
