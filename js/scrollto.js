@@ -1,5 +1,6 @@
-function scrollToAnchor(aid){
-    var aTag = $("a[name='"+ aid +"']");
-    $('html,body').animate({scrollTop: aTag.offset().top},'slow');
+function scrollToAnchor(aid) {
+	var aTag = jQuery("a[name='"+ aid +"']");
+	var body = jQuery("html, body");
+	body.animate({scrollTop: aTag.offset().top},'slow');
 }
 
