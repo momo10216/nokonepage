@@ -148,12 +148,20 @@ function setCss($menuItems, $content, $doc) {
 	$dom = new DOMDocument();
 	foreach($menuItems as $i => $item) {
 		if ($dom->loadHTML($content[$i])) {
-			while ($scriptElement = $dom->getElementsByTagName('link')) {
-				$src = $scriptElement->getAttribute('href');
-				if (!empty($src)) {
-					$doc->addStyleSheet($src);
-				} else {
-					$doc->addStyleDeclaration($scriptElement->textContent);
+			$scriptElementList = $dom->getElementsByTagName('link');
+			if ($scriptElementList->length > 0) {
+				for($i=0 ; $i<$scriptElementList->length ; $i++) {
+					$scriptElement = $scriptElementList->item($i);
+					$src = explode('?',$scriptElement->getAttribute('href'))[0];
+					if (!empty($src)) {
+						if (in_array($src, array_keys($doc->_styleSheets)) === false) {
+							$doc->addStyleSheet($src);
+						}
+					} else {
+						if (stripos($doc->_style['text/css'], $scriptElement->textContent) === false) {
+							$doc->addStyleDeclaration($scriptElement->textContent);
+						}
+					}
 				}
 			}
 		}
@@ -198,9 +206,6 @@ if($task == "edit" || $layout == "form" ) {
 JHtml::_('bootstrap.framework');
 JHtml::_('jquery.ui');
 $doc->addScript('templates/' .$this->template. '/js/template.js');
-if ($this->params->get('menuAnimation') == 'scroll') {
-	$doc->addScript('templates/' .$this->template. '/js/scrollto.js');
-}
 setScript($menuItems, $content, $doc);
 
 // Add Stylesheets
@@ -272,7 +277,10 @@ $span = "span12";
 	. ($itemid ? ' itemid-' . $itemid : '')
 	. ($params->get('containerType') ? ' fluid' : '');
 ?>">
-<?php //setScript($menuItems, $content, $doc); ?>
+
+<?php if ($this->params->get('menuAnimation') == 'scroll') : ?>
+	<script src="templates/<?php echo $this->template; ?>/js/scrollto.js" type="text/javascript"></script>
+<?php endif; ?>
 
 	<!-- Body -->
 	<div class="body" name="top">
