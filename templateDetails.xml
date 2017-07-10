@@ -2,7 +2,7 @@
 <!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.1" type="template" client="site" method="upgrade">
 	<name>NoK-OnePage</name>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<creationDate>06/19/2017</creationDate>
 	<author>Norbert Kuemin</author>
 	<authorEmail>norbert@kuem.in</authorEmail>
@@ -168,6 +168,10 @@
 					<option value="bottom center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_CENTER_LABEL</option>
 					<option value="bottom right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_RIGHT_LABEL</option>
 				</field>
+				<field name="bodyPaddingSize"
+					type="integer" first="0" last="30" step="1" default="20"
+					label="TPL_NOK-ONEPAGE_MODULE_PADDING_SIZE_LABEL"
+					description="TPL_NOK-ONEPAGE_MODULE_PADDING_SIZE_DESC" />
 			</fieldset>
 
 			<fieldset name="header" label="TPL_NOK-ONEPAGE_HEADER_LABEL">

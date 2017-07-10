@@ -7400,7 +7400,9 @@ div.modal.fade.in {
 	content: "\4b";
 }
 body.site {
-	padding: 5px;
+<?php if (!isNullOrEmpty($params,'bodyPaddingSize')) : ?>
+	padding: <?php echo $params['bodyPaddingSize'];?>px;
+<?php endif; ?>
 <?php if (!isNullOrEmpty($params,'bodyBackgroundColor')) : ?>
 	background-color: <?php echo $params['bodyBackgroundColor'];?>;
 <?php else : ?>

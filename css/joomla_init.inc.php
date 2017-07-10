@@ -102,6 +102,7 @@ if (isset($_GET['styleId'])) {
 'bodyBackgroundRepeat',
 'bodyBackgroundAttachment',
 'bodyBackgroundPosition',
+'bodyPaddingSize',
 'headerBackgroundColor',
 'headerBackgroundOpacity',
 'menuType',
