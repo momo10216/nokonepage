@@ -7575,6 +7575,14 @@ body.site.fluid {
 <?php endif; ?>
 <?php endif; ?>
 }
+.onepage-section {
+<?php if (!isNullOrEmpty($params,'sectionPaddingSizeTop')) : ?>
+	padding-top: <?php echo $params['sectionPaddingSizeTop'];?>px;
+<?php endif; ?>
+<?php if (!isNullOrEmpty($params,'sectionPaddingSizeBottom')) : ?>
+	padding-bottom: <?php echo $params['sectionPaddingSizeBottom'];?>px;
+<?php endif; ?>
+}
 .module-icon {
 	float: left;
 }

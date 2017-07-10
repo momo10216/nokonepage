@@ -91,7 +91,7 @@ function displayEntry($text, $alias, $menuTitle, $debug) {
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$menuTitle.'[\s]*<\/h1>/', '', $content);
 	if ($debug) { echo '<a href="'.$url.'" target="_new">Link</a>'; }
-	echo '<a name="'.$alias.'"></a><div>'.$content.'</div>';
+	echo '<a name="'.$alias.'"></a><div class="onepage-section">'.$content.'</div>';
 }
 
 function calcMenuLink($anchor, $text, $animation) {
