@@ -5145,10 +5145,6 @@ a.badge:focus {
 	}
 }
 @media (max-width: 767px) {
-	body {
-		padding-left: 20px;
-		padding-right: 20px;
-	}
 	.navbar-fixed-top,
 	.navbar-fixed-bottom,
 	.navbar-static-top {
@@ -7582,6 +7578,9 @@ body.site.fluid {
 <?php if (!isNullOrEmpty($params,'sectionPaddingSizeBottom')) : ?>
 	padding-bottom: <?php echo $params['sectionPaddingSizeBottom'];?>px;
 <?php endif; ?>
+}
+.onepage-anchor {
+	height: 0px;
 }
 .module-icon {
 	float: left;
