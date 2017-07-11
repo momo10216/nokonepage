@@ -183,6 +183,15 @@
 					type="integer" first="0" last="30" step="1" default="0"
 					label="TPL_NOK-ONEPAGE_SECTION_PADDING_SIZE_BOTTOM_LABEL"
 					description="TPL_NOK-ONEPAGE_SECTION_PADDING_SIZE_BOTTOM_DESC" />
+				<field name="sectionDisplayMenuIcon"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="1"
+					label="TPL_NOK-ONEPAGE_SECTION_DISPLAY_MENU_ICON_LABEL"
+					description="TPL_NOK-ONEPAGE_SECTION_DISPLAY_MENU_ICON_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
 			</fieldset>
 
 			<fieldset name="header" label="TPL_NOK-ONEPAGE_HEADER_LABEL">

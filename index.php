@@ -63,7 +63,7 @@ foreach($menuItems as $i => $item) {
 			$linktype = $item->title;
 		}
 		if ($item->menu_image) {
-			$linktype = JHtml::_('image', $item->menu_image, $item->title);
+			$linktype = JHtml::_('image', $item->menu_image, '', array('class'=>'menu-icon'));
 			if ($item->params->get('menu_text', 1)) {
 				$linktype .= ' <span class="image-title">' . $item->title . '</span>';
 			}
@@ -86,12 +86,19 @@ function getTextBetween($text, $start, $end) {
 	return explode($end,explode($start,$text)[1])[0];
 }
 
-function displayEntry($text, $alias, $menuTitle, $debug) {
+function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $debug) {
 	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
-	$content = preg_replace('/<h1>[\s]*'.$menuTitle.'[\s]*<\/h1>/', '', $content);
-	if ($debug) { echo '<a href="'.$url.'" target="_new">Link</a>'; }
-	echo '<a name="'.$alias.'"></a><div class="onepage-section">'.$content.'</div>';
+	$content = preg_replace('/<h1>[\s]*'.$homeMenuTitle.'[\s]*<\/h1>/', '', $content);
+	if ($debug) {
+		echo '<a href="'.$url.'" target="_new">Link</a>';
+		print_r($menuItem);
+	}
+	if ($displayMenuIcon) {
+		$menuItem->menu_image = $menuItem->params->get('menu_image', '') ? htmlspecialchars($menuItem->params->get('menu_image', ''), ENT_COMPAT, 'UTF-8', false) : '';
+		$content = preg_replace('/<h1>[\s]*'.$menuItem->title.'[\s]*<\/h1>/', '<h1>'.JHtml::_('image', $menuItem->menu_image, '', array('class'=>'title-icon')).' '.$menuItem->title.'</h1>', $content);
+	}
+	echo '<a name="'.$menuItem->alias.'"></a><div class="onepage-section">'.$content.'</div>';
 }
 
 function calcMenuLink($anchor, $text, $animation) {
@@ -170,6 +177,7 @@ function setCss($menuItems, $content, $doc) {
 
 // Getting global params from template
 $debug = $this->params->get('debug') == '1' ? true : false;
+$displayMenuIcon = $this->params->get('sectionDisplayMenuIcon') == '1' ? true : false;
 $styleId = getAlternateTemplateStyleId();
 $app = JFactory::getApplication();
 $params = $app->getTemplate(true)->params;
@@ -323,8 +331,8 @@ $span = "span12";
 					<!-- Begin Content -->
 					<jdoc:include type="message" />
 <?php
-	foreach($menuItems as $i => $item) {
-		displayEntry($content[$i], $item->alias, $homeMenuTitle, $debug);
+	foreach($menuItems as $i => $menuItem) {
+		displayEntry($content[$i], $menuItem, $homeMenuTitle, $displayMenuIcon, $debug);
 	}
 ?>
 					<!-- End Content -->

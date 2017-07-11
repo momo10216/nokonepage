@@ -7657,6 +7657,16 @@ body.site.fluid {
 	margin-left: auto;
 	margin-right: auto;
 }
+.menu-icon {
+<?php if (!isNullOrEmpty($params,'menuFontSize')) : ?>
+	height: <?php echo $params['menuFontSize'];?>px;
+	width: <?php echo $params['menuFontSize'];?>px;
+<?php endif; ?>
+}
+.title-icon {
+	height: <?php echo intval(intval($params['templateFontSize'])*3); ?>px;
+	width: <?php echo intval(intval($params['templateFontSize'])*3); ?>px;
+}
 figure {
 	display: table;
 }
