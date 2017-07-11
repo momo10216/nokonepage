@@ -244,6 +244,11 @@ textarea {
 	background-color: <?php echo $params['menuIconBackgroundColor']; ?>;
 <?php endif; ?>
 }
+.menuicon a {
+<?php if (!isNullOrEmpty($params,'menuIconForegroundColor')) : ?>
+	color: <?php echo $params['menuIconForegroundColor']; ?>;
+<?php endif; ?>
+}
 body {
 	margin: 0;
 	font-family: Verdana, Helvetica, Arial, sans-serif;

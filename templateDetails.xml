@@ -306,10 +306,10 @@
 					<option value="bottom-left">TPL_NOK-ONEPAGE_MENUICON_POSITION_BOTTOM_LEFT</option>
 					<option value="bottom-right">TPL_NOK-ONEPAGE_MENUICON_POSITION_BOTTOM_RIGHT</option>
 				</field>
-				<field name="menuIconBackgroundColor" class="" type="color" default="#DDDDDD"
+				<field name="menuIconBackgroundColor" class="" type="color" default=""
 					label="TPL_NOK-ONEPAGE_MENUICON_BACKGROUND_COLOR_LABEL"
 					description="TPL_NOK-ONEPAGE_MENUICON_BACKGROUND_COLOR_DESC" />
-				<field name="menuIconForegroundColor" class="" type="color" default="#000000"
+				<field name="menuIconForegroundColor" class="" type="color" default="#DDDDDD"
 					label="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_LABEL"
 					description="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_DESC" />
 				<field name="menuAnimation"
