@@ -1,19 +1,15 @@
-- Display menu:
-	- Select position
+From Fabi:
+- regelmässige grössere Abstände zwischen Content-Text und Content-Linkboxen 
+- tabellarer Aufbau innerhalb der Link-Boxen (siehst du bei Seminare gleich was ich meine) 
+- Angemeldet-bleiben-Checkbox schöner einbetten 
+- Bei Sprung auf Kategorie sollte das "Home-Icon" oben links nicht den Text überdecken. 
 
+Work:
+- regelmässige grössere Abstände zwischen Bildern und Content => Section Top/Bottom Padding
+	
 
-See:
-https://forum.joomla.org/viewtopic.php?f=428&t=757010
-https://extensions.joomla.org/extensions/extension/core-enhancements/coding-a-scripts-integration/include-component/
-
-Code:
-	$app = JFactory::getApplication();
-	$menu   = $app->getMenu($menuname);
-	$currentMenuId = $menu->getActive()->id;
-	$items = $menu->getMenu();
-print_r($items);
-	foreach($menuItems as $menuItem) {
-		$menu->setActive($menuItem->id);
-	}
-	$menu->setActive($currentMenuId);
+Done:
+- Abstand zum Rand => Jetzt konfigurierbar
+- Nav-Icons bei Titeln einbinden für Wiedererkennungswert => Jetzt konfigurierbar
+- Nav-Icons alle gleich scharf und alle optisch gleich gross => Alle 64x64 Pixel
 
