@@ -293,7 +293,7 @@ $span = "span12";
 	<!-- Body -->
 	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('containerType') ? '-fluid' : '');?>">
-			<a name="_top"></a>
+			<div class="onepage-anchor"><a name="_top"></a></div>
 			<div class="menuicon"><?php echo calcMenuLink('_top', '&#9776;', $this->params->get('menuAnimation')); ?></div>
 			<?php if ($showTop) : ?>
 			<!-- Header -->
