@@ -91,14 +91,24 @@ function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $debug
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$homeMenuTitle.'[\s]*<\/h1>/', '', $content);
 	if ($debug) {
-		echo '<a href="'.$url.'" target="_new">Link</a>';
-		print_r($menuItem);
+		echo '<a href="'.calcSectionLink($menuItem).'" target="_new">Link</a>';
+//		print_r($menuItem);
 	}
 	if ($displayMenuIcon) {
 		$menuItem->menu_image = $menuItem->params->get('menu_image', '') ? htmlspecialchars($menuItem->params->get('menu_image', ''), ENT_COMPAT, 'UTF-8', false) : '';
 		$content = preg_replace('/<h1>[\s]*'.$menuItem->title.'[\s]*<\/h1>/', '<h1>'.JHtml::_('image', $menuItem->menu_image, '', array('class'=>'title-icon')).' '.$menuItem->title.'</h1>', $content);
 	}
 	echo '<div class="onepage-anchor"><a name="'.$menuItem->alias.'"></a></div><div class="onepage-section">'.$content.'</div>';
+}
+
+function calcSectionLink($menuItem) {
+	$uri = new JURI(JURI::Root().'/index.php');
+	$uri->setVar('Itemid',$menuItem->id);
+	$uri->setVar('view',$menuItem->query['view']);
+	$uri->setVar('option',$menuItem->query['option']);
+	$uri->setVar('id',$menuItem->query['id']);
+	$uri->setVar('tmpl','component');
+	return $uri->toString();
 }
 
 function calcMenuLink($anchor, $text, $animation) {
@@ -116,13 +126,7 @@ function calcMenuLink($anchor, $text, $animation) {
 function loadContent($menuItems) {
 	$result = array();
 	foreach($menuItems as $i => $item) {
-		$uri = new JURI(JURI::Root().'/index.php');
-		$uri->setVar('Itemid',$item->id);
-		$uri->setVar('view',$item->query['view']);
-		$uri->setVar('option',$item->query['option']);
-		$uri->setVar('id',$item->query['id']);
-		$uri->setVar('tmpl','component');
-		$result[$i] = file_get_contents($uri->toString());
+		$result[$i] = file_get_contents(calcSectionLink($item));
 	}
 	return $result;
 }
@@ -131,18 +135,21 @@ function setScript($menuItems, $content, $doc) {
 	$dom = new DOMDocument();
 	foreach($menuItems as $i => $item) {
 		if ($dom->loadHTML($content[$i])) {
-			$scriptElementList = $dom->getElementsByTagName('script');
+			$head = $dom->getElementsByTagName('head')[0];
+			$scriptElementList = $head->getElementsByTagName('script');
 			if ($scriptElementList->length > 0) {
 				for($i=0 ; $i<$scriptElementList->length ; $i++) {
 					$scriptElement = $scriptElementList->item($i);
-					$src = explode('?',$scriptElement->getAttribute('src'))[0];
-					if (!empty($src)) {
-						if (in_array($src, array_keys($doc->_scripts)) === false) {
-							$doc->addScript($src);
-						}
-					} else {
-						if (stripos($doc->_script['text/javascript'], $scriptElement->textContent) === false) {
-							$doc->addScriptDeclaration($scriptElement->textContent);
+					if ($scriptElement->getAttribute('type') == 'text/javascript') {
+						$src = explode('?',$scriptElement->getAttribute('src'))[0];
+						if (!empty($src)) {
+							if (in_array($src, array_keys($doc->_scripts)) === false) {
+								$doc->addScript($src);
+							}
+						} else {
+							if (stripos($doc->_script['text/javascript'], $scriptElement->textContent) === false) {
+								$doc->addScriptDeclaration($scriptElement->textContent);
+							}
 						}
 					}
 				}
@@ -186,7 +193,7 @@ $this->language = $doc->language;
 $this->direction = $doc->direction;
 $menuIcon = '&#9776;';
 if (!empty($this->params->get('menuIconFile'))) {
-	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'menu-icon-image'));
+//	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'menu-icon-image'));
 }
 // Detecting Active Variables
 $option   = $app->input->getCmd('option', '');
