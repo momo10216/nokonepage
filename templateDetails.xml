@@ -296,6 +296,9 @@
 					<option value="nav-select-left">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVSELECTLEFT</option>
 					<option value="nav-select-right">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVSELECTRIGHT</option>
 				</field>
+				<field name="menuIconFile" class="" type="media" default=""
+					label="TPL_NOK-ONEPAGE_MENUICON_FILE_LABEL"
+					description="TPL_NOK-ONEPAGE_MENUICON_FILE_DESC" />
 				<field name="menuIconPosition"
 					type="list"
 					default="bottom-left"

@@ -200,6 +200,7 @@ textarea {
 }
 #top-left, #top-middle, #top-right {
 	display: inline-block;
+	z-index: -1;
 }
 #bottom-left, #bottom-middle, #bottom-right {
 	display: inline-block;

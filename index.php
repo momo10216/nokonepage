@@ -184,7 +184,10 @@ $params = $app->getTemplate(true)->params;
 $doc = JFactory::getDocument();
 $this->language = $doc->language;
 $this->direction = $doc->direction;
-
+$menuIcon = '&#9776;';
+if (!empty($this->params->get('menuIconFile'))) {
+	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'menu-icon-image'));
+}
 // Detecting Active Variables
 $option   = $app->input->getCmd('option', '');
 $view     = $app->input->getCmd('view', '');
@@ -294,7 +297,7 @@ $span = "span12";
 	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('containerType') ? '-fluid' : '');?>">
 			<div class="onepage-anchor"><a name="_top"></a></div>
-			<div class="menuicon"><?php echo calcMenuLink('_top', '&#9776;', $this->params->get('menuAnimation')); ?></div>
+			<div class="menuicon"><?php echo calcMenuLink('_top', $menuIcon, $this->params->get('menuAnimation')); ?></div>
 			<?php if ($showTop) : ?>
 			<!-- Header -->
 			<header class="header" role="banner">
