@@ -200,7 +200,6 @@ textarea {
 }
 #top-left, #top-middle, #top-right {
 	display: inline-block;
-	z-index: -1;
 }
 #bottom-left, #bottom-middle, #bottom-right {
 	display: inline-block;
@@ -224,7 +223,8 @@ textarea {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-.menuicon {
+.backtomenuicon {
+	z-index: 3;
 	position: fixed;
 <?php if (($params['menuIconPosition'] == 'top-left') || ($params['menuIconPosition'] == 'top-right')) : ?>
 	top: 0px;
@@ -3321,7 +3321,6 @@ input[type="submit"].btn.btn-mini {
 .nav-tabs.nav-stacked > li > a:hover,
 .nav-tabs.nav-stacked > li > a:focus {
 	border-color: #ddd;
-	z-index: 2;
 }
 .nav-pills.nav-stacked > li > a {
 	margin-bottom: 3px;
@@ -3509,7 +3508,6 @@ input[type="submit"].btn.btn-mini {
 .navbar {
 	overflow: visible;
 	*position: relative;
-	*z-index: 2;
 }
 .navbar-inner {
 <?php if (!isset($params['menuType']) || ($params['menuType'] != "tab")) : ?>

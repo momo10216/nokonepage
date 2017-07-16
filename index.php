@@ -144,7 +144,7 @@ function setScript($menuItems, $content, $doc) {
 						$src = explode('?',$scriptElement->getAttribute('src'))[0];
 						if (!empty($src)) {
 							if (in_array($src, array_keys($doc->_scripts)) === false) {
-								$doc->addScript($src);
+								$doc->addScript($scriptElement->getAttribute('src'));
 							}
 						} else {
 							if (stripos($doc->_script['text/javascript'], $scriptElement->textContent) === false) {
@@ -193,7 +193,7 @@ $this->language = $doc->language;
 $this->direction = $doc->direction;
 $menuIcon = '&#9776;';
 if (!empty($this->params->get('menuIconFile'))) {
-//	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'menu-icon-image'));
+	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'menu-icon-image'));
 }
 // Detecting Active Variables
 $option   = $app->input->getCmd('option', '');
@@ -304,7 +304,7 @@ $span = "span12";
 	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('containerType') ? '-fluid' : '');?>">
 			<div class="onepage-anchor"><a name="_top"></a></div>
-			<div class="menuicon"><?php echo calcMenuLink('_top', $menuIcon, $this->params->get('menuAnimation')); ?></div>
+			<div class="backtomenuicon"><?php echo calcMenuLink('_top', $menuIcon, $this->params->get('menuAnimation')); ?></div>
 			<?php if ($showTop) : ?>
 			<!-- Header -->
 			<header class="header" role="banner">
