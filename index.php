@@ -193,7 +193,7 @@ $this->language = $doc->language;
 $this->direction = $doc->direction;
 $menuIcon = '&#9776;';
 if (!empty($this->params->get('menuIconFile'))) {
-	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'menu-icon-image'));
+	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'backtomenuiconimage'));
 }
 // Detecting Active Variables
 $option   = $app->input->getCmd('option', '');

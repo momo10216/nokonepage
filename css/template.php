@@ -245,6 +245,9 @@ textarea {
 	background-color: <?php echo $params['menuIconBackgroundColor']; ?>;
 <?php endif; ?>
 }
+.backtomenuiconimage {
+	border: 0px;
+}
 .menuicon a {
 <?php if (!isNullOrEmpty($params,'menuIconForegroundColor')) : ?>
 	color: <?php echo $params['menuIconForegroundColor']; ?>;
