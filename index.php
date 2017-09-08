@@ -98,7 +98,7 @@ function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $debug
 		$menuItem->menu_image = $menuItem->params->get('menu_image', '') ? htmlspecialchars($menuItem->params->get('menu_image', ''), ENT_COMPAT, 'UTF-8', false) : '';
 		$content = preg_replace('/<h1>[\s]*'.$menuItem->title.'[\s]*<\/h1>/', '<h1>'.JHtml::_('image', $menuItem->menu_image, '', array('class'=>'title-icon')).' '.$menuItem->title.'</h1>', $content);
 	}
-	echo '<div class="onepage-anchor"><a name="'.$menuItem->alias.'"></a></div><div class="onepage-section">'.$content.'</div>';
+	echo '<div class="onepage-anchor"><a name="'.$menuItem->alias.'"></a></div><div class="onepage-section" id="onepage-menu-'.$menuItem->alias.'">'.$content.'</div>';
 }
 
 function calcSectionLink($menuItem) {
