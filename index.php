@@ -96,9 +96,22 @@ function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $debug
 	}
 	if ($displayMenuIcon) {
 		$menuItem->menu_image = $menuItem->params->get('menu_image', '') ? htmlspecialchars($menuItem->params->get('menu_image', ''), ENT_COMPAT, 'UTF-8', false) : '';
-		$content = preg_replace('/<h1>[\s]*'.$menuItem->title.'[\s]*<\/h1>/', '<h1>'.JHtml::_('image', $menuItem->menu_image, '', array('class'=>'title-icon')).' '.$menuItem->title.'</h1>', $content);
+		$title = '<h1>'.JHtml::_('image', $menuItem->menu_image, '', array('class'=>'onepage-section-title-icon')).$menuItem->title.'</h1>';
+		$content = preg_replace('/<h1>[\s]*'.$menuItem->title.'[\s]*<\/h1>/', '', $content);
+	} else {
+		$title = '<h1>'.$menuItem->title.'</h1>';
 	}
-	echo '<div class="onepage-anchor"><a name="'.$menuItem->alias.'"></a></div><div class="onepage-section">'.$content.'</div>';
+	echo '<div class="onepage-anchor"><a name="'.$menuItem->alias.'"></a></div>';
+	echo '<div class="onepage-section" id="onepage-section-'.$menuItem->alias.'">';
+	if (!empty($menuItem->params->get('show_page_heading', ''))) {
+		echo '<div class="onepage-section-title" id="onepage-section-title-'.$menuItem->alias.'">';
+		echo $title;
+		echo '</div>';
+	}
+	echo '<div class="onepage-section-content" id="onepage-section-content-'.$menuItem->alias.'">';
+	echo $content;
+	echo '</div>';
+	echo '</div>';
 }
 
 function calcSectionLink($menuItem) {
