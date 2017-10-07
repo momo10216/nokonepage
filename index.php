@@ -242,8 +242,8 @@ JHtml::_('bootstrap.loadCss', false, $this->direction);
 $user = JFactory::getUser();
 
 // Check modules
-$showTop      = ($this->countModules('position-0') or $this->countModules('position-1') or $this->countModules('position-2') or $this->countModules('position-3'));
-$showBottom   = ($this->countModules('position-4') or $this->countModules('position-5') or $this->countModules('position-6'));
+$showTop      = ($this->countModules('onepage-0') or $this->countModules('onepage-1') or $this->countModules('onepage-2') or $this->countModules('onepage-3'));
+$showBottom   = ($this->countModules('onepage-4') or $this->countModules('onepage-5') or $this->countModules('onepage-6'));
 
 // Adjusting content width
 $span = "span12";
