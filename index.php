@@ -90,6 +90,9 @@ function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $debug
 	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$homeMenuTitle.'[\s]*<\/h1>/', '', $content);
+	$content = str_replace('tmpl=component&', '', $content);
+	$content = str_replace('&tmpl=component', '', $content);
+	$content = str_replace('?tmpl=component', 's', $content);
 	if ($debug) {
 		echo '<a href="'.calcSectionLink($menuItem).'" target="_new">Link</a>';
 //		print_r($menuItem);
