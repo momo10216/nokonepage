@@ -141,9 +141,10 @@ function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $linkI
 	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$homeMenuTitle.'[\s]*<\/h1>/', '', $content);
+	$content = preg_replace('/<h1>[\s]*'.$menuItem->title.'[\s]*<\/h1>/', '', $content);
 	$content = str_replace('tmpl=component&', '', $content);
 	$content = str_replace('&tmpl=component', '', $content);
-	$content = str_replace('?tmpl=component', 's', $content);
+	$content = str_replace('?tmpl=component', '', $content);
 	if ($linkInNewWindow) {
 		$content = linkInNewWindow($content);
 	}
