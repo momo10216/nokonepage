@@ -9,7 +9,7 @@
 	<copyright>Copyright (C) 2017 GPL V3. All rights reserved.</copyright>
 	<description>
 		&lt;p&gt;NoK-OnePage is a template using the onepage design.&lt;/p&gt;
-		&lt;p&gt;NoK-OnePage ist ein Template f&amp;r die Nutzung des OnePage-Designs.&lt;/p&gt;
+		&lt;p&gt;NoK-OnePage ist ein Template f&amp;uuml;r die Nutzung des OnePage-Designs.&lt;/p&gt;
 	</description>
 	<files>
 		<filename>component.php</filename>
@@ -124,6 +124,15 @@
 					default="0"
 					label="TPL_NOK-ONEPAGE_DEBUG_LABEL"
 					description="TPL_NOK-ONEPAGE_DEBUG_DESC" >
+					<option value="1">JYES</option>
+					<option value="0">JNO</option>
+				</field>
+				<field name="linkInNewWindow"
+					type="radio"
+					class="btn-group btn-group-yesno"
+					default="0"
+					label="TPL_NOK-ONEPAGE_LINK_IN_NEW_WINDOW_LABEL"
+					description="TPL_NOK-ONEPAGE_LINK_IN_NEW_WINDOW_DESC" >
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>

@@ -86,13 +86,67 @@ function getTextBetween($text, $start, $end) {
 	return explode($end,explode($start,$text)[1])[0];
 }
 
-function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $debug) {
+function replaceSpecialChars($content) {
+	$specialChars = array(
+		'ä' => '&auml;',
+		'ö' => '&ouml;',
+		'ü' => '&uuml;',
+		'Ä' => '&Auml;',
+		'Ö' => '&Ouml;',
+		'Ü' => '&Uuml;',
+		'–' => '&ndash;',
+		'€' => '&euro;',
+		'©' => '&copy;',
+		'®' => '&reg;',
+		'™' => '&trade;',
+		'“' => '&#8220;',
+		'”' => '&#8221;',
+		'„' => '&#8222;',
+		'«' => '&laquo;',
+		'»' => '&raquo;'
+	);
+	foreach ($specialChars as $search => $replace) {
+		$content = str_replace($search,$replace,$content);
+	}
+	return $content;
+}
+
+function openNewWindow($uri) {
+	$uri = new JURI($uri);
+//	if (($uri->getScheme() != 'http') && ($uri->getScheme() != 'https') && !empty($uri->getScheme())) { return false; }
+	return true;
+}
+
+function linkInNewWindow($content) {
+	$dom = new DOMDocument();
+	if (!$dom->loadHTML(replaceSpecialChars($content))) { return $content; }
+	$linkElementList = $dom->getElementsByTagName('a');
+	if ($linkElementList->length > 0) {
+		for($i=0 ; $i<$linkElementList->length ; $i++) {
+			$linkElement = $linkElementList->item($i);
+			if (openNewWindow($linkElement->getAttribute('href'))) {
+				$linkElement->setAttribute('target','_blank');
+			}
+		}
+		$content = $dom->saveHTML();
+		$content = str_replace('<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">','',$content);
+		$content = str_replace('<html><body>','',$content);
+		$content = str_replace('</body></html>','',$content);
+		$content = str_replace('&Acirc;','',$content);
+	}
+	return $content;
+}
+
+function displayEntry($text, $menuItem, $homeMenuTitle, $displayMenuIcon, $linkInNewWindow, $debug) {
 	$content = getTextBetween($text, '<body class="contentpane modal">', '</body>');
 	$content = preg_replace('/<div id="system-message-container">[^<]*<\/div>/', '', $content);
 	$content = preg_replace('/<h1>[\s]*'.$homeMenuTitle.'[\s]*<\/h1>/', '', $content);
 	$content = str_replace('tmpl=component&', '', $content);
 	$content = str_replace('&tmpl=component', '', $content);
 	$content = str_replace('?tmpl=component', 's', $content);
+	if ($linkInNewWindow) {
+		$content = linkInNewWindow($content);
+	}
 	if ($debug) {
 		echo '<a href="'.calcSectionLink($menuItem).'" target="_new">Link</a>';
 //		print_r($menuItem);
@@ -200,6 +254,7 @@ function setCss($menuItems, $content, $doc) {
 
 // Getting global params from template
 $debug = $this->params->get('debug') == '1' ? true : false;
+$linkInNewWindow = $this->params->get('linkInNewWindow') == '1' ? true : false;
 $displayMenuIcon = $this->params->get('sectionDisplayMenuIcon') == '1' ? true : false;
 $styleId = getAlternateTemplateStyleId();
 $app = JFactory::getApplication();
@@ -358,7 +413,7 @@ $span = "span12";
 					<jdoc:include type="message" />
 <?php
 	foreach($menuItems as $i => $menuItem) {
-		displayEntry($content[$i], $menuItem, $homeMenuTitle, $displayMenuIcon, $debug);
+		displayEntry($content[$i], $menuItem, $homeMenuTitle, $displayMenuIcon, $linkInNewWindow, $debug);
 	}
 ?>
 					<!-- End Content -->
