@@ -39,50 +39,45 @@ JHtml::_('bootstrap.framework');
 
 // Add current user information
 $user = JFactory::getUser();
+
+// Check modules
+$showTop      = ($this->countModules('onepage-0') or $this->countModules('onepage-1') or $this->countModules('onepage-2') or $this->countModules('onepage-3'));
+$showBottom   = ($this->countModules('onepage-4') or $this->countModules('onepage-5') or $this->countModules('onepage-6'));
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?php echo $this->language; ?>" lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<title><?php echo $this->title; ?> <?php echo htmlspecialchars($this->error->getMessage()); ?></title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<jdoc:include type="head" />
+<?php if ($params->get('faviconFile')) : ?>
+	<link rel="shortcut icon" href="<?php echo JURI::base()."/".$params->get('faviconFile'); ?>" />
+<?php endif; ?>
 	<?php
-		// Use of Google Font
-		if ($params->get('googleFont'))
-		{
+	// Use of Google Font
+	if ($this->params->get('googleFont'))
+	{
 	?>
-		<link href='//fonts.googleapis.com/css?family=<?php echo $params->get('googleFontName');?>' rel='stylesheet' type='text/css' />
+		<link href='//fonts.googleapis.com/css?family=<?php echo $this->params->get('googleFontName');?>' rel='stylesheet' type='text/css' />
 		<style type="text/css">
-			h1,h2,h3,h4,h5,h6,.site-title{
-				font-family: '<?php echo str_replace('+', ' ', $params->get('googleFontName'));?>', sans-serif;
+			h1,h2,h3,h4,h5,h6,.site-title {
+				font-family: '<?php echo str_replace('+', ' ', $this->params->get('googleFontName'));?>', sans-serif;
 			}
 		</style>
 	<?php
-		}
-	?>
-	<link rel="stylesheet" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template; ?>/css/template.php" type="text/css" />
-
-	<?php
-		$debug = JFactory::getConfig()->get('debug_lang');
-		if ((defined('JDEBUG') && JDEBUG) || $debug)
-		{
-	?>
-		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/media/cms/css/debug.css" type="text/css" />
-	<?php
-		}
+	}
 	?>
 	<?php
-	// If Right-to-Left
-	if ($this->direction == 'rtl')
-	{
+	// Write additional css information
+	if ($this->params->get('cssPage')) {
 	?>
-		<link rel="stylesheet" href="<?php echo $this->baseurl ?>/media/jui/css/bootstrap-rtl.css" type="text/css" />
+		<style type="text/css">
+<?php echo $params['cssPage']; ?>
+		</style>
 	<?php
 	}
 	?>
-<?php if ($params->get('iconFile')) : ?>
-	<link rel="shortcut icon" href="<?php echo JURI::base()."/".$params->get('iconFile'); ?>" />
-<?php endif; ?>
+
+
 	<!--[if lt IE 9]>
 		<script src="<?php echo $this->baseurl ?>/media/jui/js/html5.js"></script>
 	<![endif]-->
@@ -93,39 +88,49 @@ $user = JFactory::getUser();
 	. ($layout ? ' layout-' . $layout : ' no-layout')
 	. ($task ? ' task-' . $task : ' no-task')
 	. ($itemid ? ' itemid-' . $itemid : '')
-	. ($params->get('fluidContainer') ? ' fluid' : '');
+	. ($params->get('containerType') ? ' fluid' : '');
 ?>">
 
+<?php if ($this->params->get('menuAnimation') == 'scroll') : ?>
+	<script src="templates/<?php echo $this->template; ?>/js/scrollto.js" type="text/javascript"></script>
+<?php endif; ?>
+
 	<!-- Body -->
-	<div class="body">
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
+	<div class="body" name="top">
+		<div class="container<?php echo ($params->get('containerType') ? '-fluid' : '');?>">
+			<div class="onepage-anchor"><a name="_top"></a></div>
+			<div class="backtomenuicon"><?php echo calcMenuLink('_top', $menuIcon, $this->params->get('menuAnimation')); ?></div>
+			<?php if ($showTop) : ?>
 			<!-- Header -->
-			<div class="header">
+			<header class="header" role="banner">
 				<div class="header-inner clearfix">
-					<div class="header-logo pull-left">
-						<?php
-						// Display position-0 modules
-						echo $doc->getBuffer('modules', 'logo', array('style' => 'none'));
-						?>
-					</div>
+					<?php if ($this->countModules('position-0')) : ?>
 					<div class="header-search pull-right">
-						<?php
-						// Display position-0 modules
-						echo $doc->getBuffer('modules', 'search', array('style' => 'none'));
-						?>
+						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+						<jdoc:include type="modules" name="onepage-0" style="none" />
+						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+					</div>
+					<?php endif; ?>
+				</div>
+				<div id="top">
+					<div id="top-left">
+						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+						<jdoc:include type="modules" name="onepage-1" style="none" />
+						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+					</div>
+					<div id="top-middle">
+						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+						<jdoc:include type="modules" name="onepage-2" style="none" />
+						<?php if (($menuPosition == '2') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+					</div>
+					<div id="top-right">
+						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+						<jdoc:include type="modules" name="onepage-3" style="none" />
+						<?php if (($menuPosition == '3') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 					</div>
 				</div>
-			</div>
-			<div class="navigation">
-				<?php
-				// Display position-1 modules
-				echo $doc->getBuffer('modules', 'top', array('style' => 'none'));
-				?>
-			</div>
-			<!-- Banner -->
-			<div class="banner">
-				<?php echo $doc->getBuffer('modules', 'banner', array('style' => 'xhtml')); ?>
-			</div>
+			</header>
+			<?php endif; ?>
 			<div class="row-fluid">
 				<div id="content" class="span12">
 					<!-- Begin Content -->
@@ -159,25 +164,33 @@ $user = JFactory::getUser();
 						</blockquote>
 					</div>
 					<!-- End Content -->
-				</div>
 			</div>
 		</div>
-	</div>
-	<!-- Footer -->
-	<div class="footer">
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : '');?>">
+		<!-- Footer -->
+		<footer class="footer" role="contentinfo">
 			<hr />
-			<?php echo $doc->getBuffer('modules', 'footer', array('style' => 'none')); ?>
-			<p class="pull-right">
-				<a href="#top" id="back-top">
-					<?php echo JText::_('TPL_NOKGENERIC_BACKTOTOP'); ?>
-				</a>
-			</p>
-			<p>
-				&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
-			</p>
-		</div>
+			<?php if ($showBottom) : ?>
+			<div id="bottom">
+				<div id="bottom-left">
+					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+					<jdoc:include type="modules" name="onepage-4" style="none" />
+					<?php if (($menuPosition == '4') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+				</div>
+				<div id="bottom-middle">
+					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+					<jdoc:include type="modules" name="onepage-5" style="none" />
+					<?php if (($menuPosition == '5') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+				</div>
+				<div id="bottom-right">
+					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+					<jdoc:include type="modules" name="onepage-6" style="none" />
+					<?php if (($menuPosition == '6') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+				</div>
+			</div>
+			<?php endif; ?>
+
+		</footer>
 	</div>
-	<?php echo $doc->getBuffer('modules', 'debug', array('style' => 'none')); ?>
+	<jdoc:include type="modules" name="debug" style="none" />
 </body>
 </html>

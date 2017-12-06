@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE install PUBLIC "-//Joomla! 2.5//DTD template 1.0//EN" "http://www.joomla.org/xml/dtd/2.5/template-install.dtd">
 <extension version="3.1" type="template" client="site" method="upgrade">
-	<name>NoK-OnePage</name>
-	<version>1.2.1</version>
+	<name>TPL_NOKONEPAGE</name>
+	<version>1.2.2</version>
 	<creationDate>06/19/2017</creationDate>
 	<author>Norbert Kuemin</author>
 	<authorEmail>norbert@kuem.in</authorEmail>
 	<copyright>Copyright (C) 2017 GPL V3. All rights reserved.</copyright>
-	<description>
-		&lt;p&gt;NoK-OnePage is a template using the onepage design.&lt;/p&gt;
-		&lt;p&gt;NoK-OnePage ist ein Template f&amp;uuml;r die Nutzung des OnePage-Designs.&lt;/p&gt;
-	</description>
+	<license>http://www.gnu.org/copyleft/gpl.html GNU/GPL</license>
+	<description>TPL_NOKONEPAGE_APP_DESC</description>
 	<files>
 		<filename>component.php</filename>
 		<filename>error.php</filename>
@@ -43,87 +40,87 @@
 	</languages>
 	<config>
 		<fields name="params">
-			<fieldset name="common" label="TPL_NOK-ONEPAGE_COMMON_LABEL">
+			<fieldset name="common" label="TPL_NOKONEPAGE_COMMON_LABEL">
 				<field name="templateColor" class="" type="color" default="#08C"
-					label="TPL_NOK-ONEPAGE_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_COLOR_DESC" />
 				<field name="templateForegroundColor" class="" type="color" default="#333"
-					label="TPL_NOK-ONEPAGE_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_FOREGROUND_COLOR_DESC" />
 				<field name="templateLinkColor" class="" type="color" default="#333"
-					label="TPL_NOK-ONEPAGE_LINK_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_LINK_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_LINK_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_LINK_COLOR_DESC" />
 				<field name="templateLinkDecoration" default="none"
 					type="list"
-					label="TPL_NOK-ONEPAGE_LINK_DECORATION_LABEL"
-					description="TPL_NOK-ONEPAGE_LINK_DECORATION_DESC" >
-					<option value="none">TPL_NOK-ONEPAGE_TEXT_DECORATION_NONE</option>
-					<option value="underline">TPL_NOK-ONEPAGE_TEXT_DECORATION_UNDERLINE</option>
-					<option value="overline">TPL_NOK-ONEPAGE_TEXT_DECORATION_OVERLINE</option>
-					<option value="line-through">TPL_NOK-ONEPAGE_TEXT_DECORATION_LINETHROUGH</option>
-					<option value="blink">TPL_NOK-ONEPAGE_TEXT_DECORATION_BLINK</option>
+					label="TPL_NOKONEPAGE_LINK_DECORATION_LABEL"
+					description="TPL_NOKONEPAGE_LINK_DECORATION_DESC" >
+					<option value="none">TPL_NOKONEPAGE_TEXT_DECORATION_NONE</option>
+					<option value="underline">TPL_NOKONEPAGE_TEXT_DECORATION_UNDERLINE</option>
+					<option value="overline">TPL_NOKONEPAGE_TEXT_DECORATION_OVERLINE</option>
+					<option value="line-through">TPL_NOKONEPAGE_TEXT_DECORATION_LINETHROUGH</option>
+					<option value="blink">TPL_NOKONEPAGE_TEXT_DECORATION_BLINK</option>
 				</field>
 				<field name="templateButtonBackgroundColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_BUTTON_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_BUTTON_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BUTTON_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_BUTTON_BACKGROUND_COLOR_DESC" />
 				<field name="templateButtonBackgroundOpacity"
 					type="integer" first="0" last="100" step="10" default="100"
-					label="TPL_NOK-ONEPAGE_BUTTON_BACKGROUND_OPACITY_LABEL"
-					description="TPL_NOK-ONEPAGE_OPACITY_DESC" />
+					label="TPL_NOKONEPAGE_BUTTON_BACKGROUND_OPACITY_LABEL"
+					description="TPL_NOKONEPAGE_OPACITY_DESC" />
 				<field name="templateButtonTextColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_BUTTON_TEXTGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_BUTTON_TEXTGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BUTTON_TEXTGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_BUTTON_TEXTGROUND_COLOR_DESC" />
 				<field name="templateButtonBorderColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_BUTTON_BORDER_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_BUTTON_BORDER_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BUTTON_BORDER_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_BUTTON_BORDER_COLOR_DESC" />
 				<field name="googleFont"
 					type="radio"
 					class="btn-group btn-group-yesno"
 					default="1"
-					label="TPL_NOK-ONEPAGE_FONT_LABEL"
-					description="TPL_NOK-ONEPAGE_FONT_DESC" >
+					label="TPL_NOKONEPAGE_FONT_LABEL"
+					description="TPL_NOKONEPAGE_FONT_DESC" >
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 				<field name="googleFontName" class="" type="text" default="Open+Sans"
-					label="TPL_NOK-ONEPAGE_FONT_NAME_LABEL"
-					description="TPL_NOK-ONEPAGE_FONT_NAME_DESC" />
+					label="TPL_NOKONEPAGE_FONT_NAME_LABEL"
+					description="TPL_NOKONEPAGE_FONT_NAME_DESC" />
 				<field name="templateFontSize"
 					type="integer" first="8" last="24" step="2" default="12"
-					label="TPL_NOK-ONEPAGE_FONT_SIZE_LABEL" description="TPL_NOK-ONEPAGE_FONT_SIZE_DESC" />
+					label="TPL_NOKONEPAGE_FONT_SIZE_LABEL" description="TPL_NOKONEPAGE_FONT_SIZE_DESC" />
 				<field name="containerType"
 					type="radio"
 					class="btn-group btn-group-yesno"
 					default="0"
-					label="TPL_NOK-ONEPAGE_FLUID_LABEL"
-					description="TPL_NOK-ONEPAGE_FLUID_DESC" >
-					<option value="1">TPL_NOK-ONEPAGE_FLUID</option>
-					<option value="0">TPL_NOK-ONEPAGE_STATIC</option>
+					label="TPL_NOKONEPAGE_FLUID_LABEL"
+					description="TPL_NOKONEPAGE_FLUID_DESC" >
+					<option value="1">TPL_NOKONEPAGE_FLUID</option>
+					<option value="0">TPL_NOKONEPAGE_STATIC</option>
 				</field>
 				<field name="containerWidth"
 					type="integer" first="800" last="1400" step="50" default="950"
-					label="TPL_NOK-ONEPAGE_CONTAINER_WIDTH_LABEL"
-					description="TPL_NOK-ONEPAGE_CONTAINER_WIDTH_DESC" />
+					label="TPL_NOKONEPAGE_CONTAINER_WIDTH_LABEL"
+					description="TPL_NOKONEPAGE_CONTAINER_WIDTH_DESC" />
 				<field name="templateRadius"
 					type="integer" first="0" last="10" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_RADIUS_LABEL" description="TPL_NOK-ONEPAGE_RADIUS_DESC" />
+					label="TPL_NOKONEPAGE_RADIUS_LABEL" description="TPL_NOKONEPAGE_RADIUS_DESC" />
 				<field name="faviconFile" class="" type="media" default=""
-					label="TPL_NOK-ONEPAGE_FAVICON_FILE_LABEL"
-					description="TPL_NOK-ONEPAGE_FAVICON_FILE_DESC" />
+					label="TPL_NOKONEPAGE_FAVICON_FILE_LABEL"
+					description="TPL_NOKONEPAGE_FAVICON_FILE_DESC" />
 				<field name="templateParagraphMarginTop" class=""
 					type="integer" first="0" last="10" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_PARAGRAPH_MARGIN_TOP_LABEL"
-					description="TPL_NOK-ONEPAGE_PARAGRAPH_MARGIN_TOP_DESC" />
+					label="TPL_NOKONEPAGE_PARAGRAPH_MARGIN_TOP_LABEL"
+					description="TPL_NOKONEPAGE_PARAGRAPH_MARGIN_TOP_DESC" />
 				<field name="templateParagraphMarginBottom" class=""
 					type="integer" first="0" last="10" step="1" default="1"
-					label="TPL_NOK-ONEPAGE_PARAGRAPH_MARGIN_BOTTOM_LABEL"
-					description="TPL_NOK-ONEPAGE_PARAGRAPH_MARGIN_BOTTOM_DESC" />
+					label="TPL_NOKONEPAGE_PARAGRAPH_MARGIN_BOTTOM_LABEL"
+					description="TPL_NOKONEPAGE_PARAGRAPH_MARGIN_BOTTOM_DESC" />
 				<field name="debug"
 					type="radio"
 					class="btn-group btn-group-yesno"
 					default="0"
-					label="TPL_NOK-ONEPAGE_DEBUG_LABEL"
-					description="TPL_NOK-ONEPAGE_DEBUG_DESC" >
+					label="TPL_NOKONEPAGE_DEBUG_LABEL"
+					description="TPL_NOKONEPAGE_DEBUG_DESC" >
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
@@ -131,413 +128,413 @@
 					type="radio"
 					class="btn-group btn-group-yesno"
 					default="0"
-					label="TPL_NOK-ONEPAGE_LINK_IN_NEW_WINDOW_LABEL"
-					description="TPL_NOK-ONEPAGE_LINK_IN_NEW_WINDOW_DESC" >
+					label="TPL_NOKONEPAGE_LINK_IN_NEW_WINDOW_LABEL"
+					description="TPL_NOKONEPAGE_LINK_IN_NEW_WINDOW_DESC" >
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 			</fieldset>
-			<fieldset name="body" label="TPL_NOK-ONEPAGE_BODY_LABEL">
+			<fieldset name="body" label="TPL_NOKONEPAGE_BODY_LABEL">
 				<field name="bodyBackgroundColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_BODY_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_BODY_BACKGROUND_COLOR_DESC" />
 				<field name="bodyBackgroundFile" class="" type="media" default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_FILE_LABEL"
-					description="TPL_NOK-ONEPAGE_BODY_BACKGROUND_FILE_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_FILE_LABEL"
+					description="TPL_NOKONEPAGE_BODY_BACKGROUND_FILE_DESC" />
 				<field name="bodyBackgroundRepeat"
 					type="list"
 					default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_DESC" >
-					<option value="">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_UNDEF_LABEL</option>
-					<option value="repeat-x">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_X_LABEL</option>
-					<option value="repeat-y">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_Y_LABEL</option>
-					<option value="no-repeat">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_NOT_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_REPEAT_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_REPEAT_DESC" >
+					<option value="">TPL_NOKONEPAGE_BACKGROUND_REPEAT_UNDEF_LABEL</option>
+					<option value="repeat-x">TPL_NOKONEPAGE_BACKGROUND_REPEAT_X_LABEL</option>
+					<option value="repeat-y">TPL_NOKONEPAGE_BACKGROUND_REPEAT_Y_LABEL</option>
+					<option value="no-repeat">TPL_NOKONEPAGE_BACKGROUND_REPEAT_NOT_LABEL</option>
 				</field>
 				<field name="bodyBackgroundAttachment"
 					type="list"
 					default="scroll"
-					label="TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_DESC" >
-					<option value="scroll">TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_SCROLL_LABEL</option>
-					<option value="fixed">TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_FIXED_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_DESC" >
+					<option value="scroll">TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_SCROLL_LABEL</option>
+					<option value="fixed">TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_FIXED_LABEL</option>
 				</field>
 				<field name="bodyBackgroundPosition"
 					type="list"
 					default="top left"
-					label="TPL_NOK-ONEPAGE_BACKGROUND_POSITION_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_POSITION_DESC" >
-					<option value="top left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_LEFT_LABEL</option>
-					<option value="top center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_CENTER_LABEL</option>
-					<option value="top right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_RIGHT_LABEL</option>
-					<option value="center left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_LEFT_LABEL</option>
-					<option value="center center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_CENTER_LABEL</option>
-					<option value="center right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_RIGHT_LABEL</option>
-					<option value="bottom left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_LEFT_LABEL</option>
-					<option value="bottom center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_CENTER_LABEL</option>
-					<option value="bottom right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_RIGHT_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_POSITION_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_POSITION_DESC" >
+					<option value="top left">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_LEFT_LABEL</option>
+					<option value="top center">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_CENTER_LABEL</option>
+					<option value="top right">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_RIGHT_LABEL</option>
+					<option value="center left">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_LEFT_LABEL</option>
+					<option value="center center">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_CENTER_LABEL</option>
+					<option value="center right">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_RIGHT_LABEL</option>
+					<option value="bottom left">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_LEFT_LABEL</option>
+					<option value="bottom center">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_CENTER_LABEL</option>
+					<option value="bottom right">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_RIGHT_LABEL</option>
 				</field>
 				<field name="bodyPaddingSize"
 					type="integer" first="0" last="30" step="1" default="20"
-					label="TPL_NOK-ONEPAGE_BODY_PADDING_SIZE_LABEL"
-					description="TPL_NOK-ONEPAGE_BODY_PADDING_SIZE_DESC" />
+					label="TPL_NOKONEPAGE_BODY_PADDING_SIZE_LABEL"
+					description="TPL_NOKONEPAGE_BODY_PADDING_SIZE_DESC" />
 			</fieldset>
 
-			<fieldset name="section" label="TPL_NOK-ONEPAGE_SECTION_LABEL">
+			<fieldset name="section" label="TPL_NOKONEPAGE_SECTION_LABEL">
 				<field name="sectionPaddingSizeTop"
 					type="integer" first="0" last="30" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_SECTION_PADDING_SIZE_TOP_LABEL"
-					description="TPL_NOK-ONEPAGE_SECTION_PADDING_SIZE_TOP_DESC" />
+					label="TPL_NOKONEPAGE_SECTION_PADDING_SIZE_TOP_LABEL"
+					description="TPL_NOKONEPAGE_SECTION_PADDING_SIZE_TOP_DESC" />
 				<field name="sectionPaddingSizeBottom"
 					type="integer" first="0" last="30" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_SECTION_PADDING_SIZE_BOTTOM_LABEL"
-					description="TPL_NOK-ONEPAGE_SECTION_PADDING_SIZE_BOTTOM_DESC" />
+					label="TPL_NOKONEPAGE_SECTION_PADDING_SIZE_BOTTOM_LABEL"
+					description="TPL_NOKONEPAGE_SECTION_PADDING_SIZE_BOTTOM_DESC" />
 				<field name="sectionDisplayMenuIcon"
 					type="radio"
 					class="btn-group btn-group-yesno"
 					default="1"
-					label="TPL_NOK-ONEPAGE_SECTION_DISPLAY_MENU_ICON_LABEL"
-					description="TPL_NOK-ONEPAGE_SECTION_DISPLAY_MENU_ICON_DESC" >
+					label="TPL_NOKONEPAGE_SECTION_DISPLAY_MENU_ICON_LABEL"
+					description="TPL_NOKONEPAGE_SECTION_DISPLAY_MENU_ICON_DESC" >
 					<option value="1">JYES</option>
 					<option value="0">JNO</option>
 				</field>
 			</fieldset>
 
-			<fieldset name="header" label="TPL_NOK-ONEPAGE_HEADER_LABEL">
+			<fieldset name="header" label="TPL_NOKONEPAGE_HEADER_LABEL">
 				<field name="headerBackgroundColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_FOOTER_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_FOOTER_BACKGROUND_COLOR_DESC" />
 				<field name="headerBackgroundOpacity"
 					type="integer" first="0" last="100" step="10" default="100"
-					label="TPL_NOK-ONEPAGE_OPACITY_LABEL"
-					description="TPL_NOK-ONEPAGE_OPACITY_DESC" />
+					label="TPL_NOKONEPAGE_OPACITY_LABEL"
+					description="TPL_NOKONEPAGE_OPACITY_DESC" />
 			</fieldset>
 
-			<fieldset name="menu" label="TPL_NOK-ONEPAGE_MENU_LABEL">
+			<fieldset name="menu" label="TPL_NOKONEPAGE_MENU_LABEL">
 				<field name="menuName" class="" type="menu" default="" hide_none="false"
-					label="TPL_NOK-ONEPAGE_MENU_NAME_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_NAME_DESC" />
+					label="TPL_NOKONEPAGE_MENU_NAME_LABEL"
+					description="TPL_NOKONEPAGE_MENU_NAME_DESC" />
 				<field name="menuType"
 					type="list"
 					default="block"
-					label="TPL_NOK-ONEPAGE_MENU_TYPE_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_TYPE_DESC" >
-					<option value="block">TPL_NOK-ONEPAGE_MENU_BLOCK</option>
-					<option value="bar">TPL_NOK-ONEPAGE_MENU_BAR</option>
-					<option value="tab">TPL_NOK-ONEPAGE_MENU_TAB</option>
+					label="TPL_NOKONEPAGE_MENU_TYPE_LABEL"
+					description="TPL_NOKONEPAGE_MENU_TYPE_DESC" >
+					<option value="block">TPL_NOKONEPAGE_MENU_BLOCK</option>
+					<option value="bar">TPL_NOKONEPAGE_MENU_BAR</option>
+					<option value="tab">TPL_NOKONEPAGE_MENU_TAB</option>
 				</field>
 				<field name="menuPosition"
 					type="integer" first="0" last="6" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_MENU_POSITION_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_POSITION_DESC" />
+					label="TPL_NOKONEPAGE_MENU_POSITION_LABEL"
+					description="TPL_NOKONEPAGE_MENU_POSITION_DESC" />
 				<field name="menuPositionFirstLast"
 					type="list"
 					default="first"
-					label="TPL_NOK-ONEPAGE_MENU_POSITION_FIRST_LAST_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_POSITION_FIRST_LAST_DESC" >
-					<option value="first">TPL_NOK-ONEPAGE_MENU_POSITION_FIRST</option>
-					<option value="last">TPL_NOK-ONEPAGE_MENU_POSITION_LAST</option>
+					label="TPL_NOKONEPAGE_MENU_POSITION_FIRST_LAST_LABEL"
+					description="TPL_NOKONEPAGE_MENU_POSITION_FIRST_LAST_DESC" >
+					<option value="first">TPL_NOKONEPAGE_MENU_POSITION_FIRST</option>
+					<option value="last">TPL_NOKONEPAGE_MENU_POSITION_LAST</option>
 				</field>
 				<field name="menuBackgroundColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_MENU_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENU_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENU_BACKGROUND_COLOR_DESC" />
 				<field name="menuFontSize"
 					type="integer" first="8" last="36" step="2" default="12"
-					label="TPL_NOK-ONEPAGE_MENU_FONT_SIZE_LABEL" description="TPL_NOK-ONEPAGE_MENU_FONT_SIZE_DESC" />
+					label="TPL_NOKONEPAGE_MENU_FONT_SIZE_LABEL" description="TPL_NOKONEPAGE_MENU_FONT_SIZE_DESC" />
 				<field name="menuBackgroundOpacity"
 					type="integer" first="0" last="100" step="10" default="100"
-					label="TPL_NOK-ONEPAGE_OPACITY_LABEL"
-					description="TPL_NOK-ONEPAGE_OPACITY_DESC" />
+					label="TPL_NOKONEPAGE_OPACITY_LABEL"
+					description="TPL_NOKONEPAGE_OPACITY_DESC" />
 				<field name="menuEntryBackgroundColor" class="" type="color" default="#DDDDDD"
-					label="TPL_NOK-ONEPAGE_MENUENTRY_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUENTRY_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_BACKGROUND_COLOR_DESC" />
 				<field name="menuEntryForegroundColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUENTRY_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_FOREGROUND_COLOR_DESC" />
 				<field name="menuEntryRadius"
 					type="integer" first="0" last="10" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_MENUENTRY_RADIUS_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_RADIUS_DESC" />
+					label="TPL_NOKONEPAGE_MENUENTRY_RADIUS_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_RADIUS_DESC" />
 				<field name="menuEntryHorizontalSpacing" class="" type="integer" default="12"
-					first="0" last="50" step="1" label="TPL_NOK-ONEPAGE_MENUENTRY_HORIZONTAL_SPACING_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_HORIZONTAL_SPACING_DESC" />
+					first="0" last="50" step="1" label="TPL_NOKONEPAGE_MENUENTRY_HORIZONTAL_SPACING_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_HORIZONTAL_SPACING_DESC" />
 				<field name="menuEntryFocusBackgroundColor" class="" type="color" default="#FFFFFF"
-					label="TPL_NOK-ONEPAGE_MENUENTRY_FOCUS_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_FOCUS_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUENTRY_FOCUS_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_FOCUS_BACKGROUND_COLOR_DESC" />
 				<field name="menuEntryFocusForegroundColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_MENUENTRY_FOCUS_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_FOCUS_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUENTRY_FOCUS_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_FOCUS_FOREGROUND_COLOR_DESC" />
 				<field name="menuEntryHoverBackgroundColor" class="" type="color" default="#AAAAAA"
-					label="TPL_NOK-ONEPAGE_MENUENTRY_HOVER_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_HOVER_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUENTRY_HOVER_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_HOVER_BACKGROUND_COLOR_DESC" />
 				<field name="menuEntryHoverForegroundColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_MENUENTRY_HOVER_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUENTRY_HOVER_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUENTRY_HOVER_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUENTRY_HOVER_FOREGROUND_COLOR_DESC" />
 				<field name="menuChildBackgroundColor" class="" type="color" default="#FFFFFF"
-					label="TPL_NOK-ONEPAGE_MENUCHILD_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUCHILD_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUCHILD_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUCHILD_BACKGROUND_COLOR_DESC" />
 				<field name="menuChildForegroundColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_MENUCHILD_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUCHILD_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUCHILD_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUCHILD_FOREGROUND_COLOR_DESC" />
 				<field name="menuChildFocusBackgroundColor" class="" type="color" default="#DDDDDD"
-					label="TPL_NOK-ONEPAGE_MENUCHILD_FOCUS_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUCHILD_FOCUS_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUCHILD_FOCUS_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUCHILD_FOCUS_BACKGROUND_COLOR_DESC" />
 				<field name="menuChildFocusForegroundColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_MENUCHILD_FOCUS_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUCHILD_FOCUS_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUCHILD_FOCUS_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUCHILD_FOCUS_FOREGROUND_COLOR_DESC" />
 				<field name="menuChildHoverBackgroundColor" class="" type="color" default="#DDDDDD"
-					label="TPL_NOK-ONEPAGE_MENUCHILD_HOVER_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUCHILD_HOVER_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUCHILD_HOVER_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUCHILD_HOVER_BACKGROUND_COLOR_DESC" />
 				<field name="menuChildHoverForegroundColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_MENUCHILD_HOVER_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUCHILD_HOVER_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUCHILD_HOVER_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUCHILD_HOVER_FOREGROUND_COLOR_DESC" />
 				<field name="menuChildBorderColor" class="" type="color" default="#CCCCCC"
-					label="TPL_NOK-ONEPAGE_MENUCHILD_BORDER_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUCHILD_BORDER_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUCHILD_BORDER_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUCHILD_BORDER_COLOR_DESC" />
 				<field name="menuMobileType"
 					type="list"
 					default="same"
-					label="TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_DESC" >
-					<option value="same">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_SAME</option>
-					<option value="nav-btn-left">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVBTNLEFT</option>
-					<option value="nav-btn-right">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVBTNRIGHT</option>
-					<option value="nav-select-left">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVSELECTLEFT</option>
-					<option value="nav-select-right">TPL_NOK-ONEPAGE_MENU_MOBILE_TYPE_NAVSELECTRIGHT</option>
+					label="TPL_NOKONEPAGE_MENU_MOBILE_TYPE_LABEL"
+					description="TPL_NOKONEPAGE_MENU_MOBILE_TYPE_DESC" >
+					<option value="same">TPL_NOKONEPAGE_MENU_MOBILE_TYPE_SAME</option>
+					<option value="nav-btn-left">TPL_NOKONEPAGE_MENU_MOBILE_TYPE_NAVBTNLEFT</option>
+					<option value="nav-btn-right">TPL_NOKONEPAGE_MENU_MOBILE_TYPE_NAVBTNRIGHT</option>
+					<option value="nav-select-left">TPL_NOKONEPAGE_MENU_MOBILE_TYPE_NAVSELECTLEFT</option>
+					<option value="nav-select-right">TPL_NOKONEPAGE_MENU_MOBILE_TYPE_NAVSELECTRIGHT</option>
 				</field>
 				<field name="menuIconFile" class="" type="media" default=""
-					label="TPL_NOK-ONEPAGE_MENUICON_FILE_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUICON_FILE_DESC" />
+					label="TPL_NOKONEPAGE_MENUICON_FILE_LABEL"
+					description="TPL_NOKONEPAGE_MENUICON_FILE_DESC" />
 				<field name="menuIconPosition"
 					type="list"
 					default="bottom-left"
-					label="TPL_NOK-ONEPAGE_MENUICON_POSITION_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUICON_POSITION_DESC" >
-					<option value="top-left">TPL_NOK-ONEPAGE_MENUICON_POSITION_TOP_LEFT</option>
-					<option value="top-right">TPL_NOK-ONEPAGE_MENUICON_POSITION_TOP_RIGHT</option>
-					<option value="bottom-left">TPL_NOK-ONEPAGE_MENUICON_POSITION_BOTTOM_LEFT</option>
-					<option value="bottom-right">TPL_NOK-ONEPAGE_MENUICON_POSITION_BOTTOM_RIGHT</option>
+					label="TPL_NOKONEPAGE_MENUICON_POSITION_LABEL"
+					description="TPL_NOKONEPAGE_MENUICON_POSITION_DESC" >
+					<option value="top-left">TPL_NOKONEPAGE_MENUICON_POSITION_TOP_LEFT</option>
+					<option value="top-right">TPL_NOKONEPAGE_MENUICON_POSITION_TOP_RIGHT</option>
+					<option value="bottom-left">TPL_NOKONEPAGE_MENUICON_POSITION_BOTTOM_LEFT</option>
+					<option value="bottom-right">TPL_NOKONEPAGE_MENUICON_POSITION_BOTTOM_RIGHT</option>
 				</field>
 				<field name="menuIconBackgroundColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_MENUICON_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUICON_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUICON_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUICON_BACKGROUND_COLOR_DESC" />
 				<field name="menuIconForegroundColor" class="" type="color" default="#DDDDDD"
-					label="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MENUICON_FOREGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_MENUICON_FOREGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MENUICON_FOREGROUND_COLOR_DESC" />
 				<field name="menuAnimation"
 					type="list"
 					default="jump"
-					label="TPL_NOK-ONEPAGE_MENU_ANIMATION_LABEL"
-					description="TPL_NOK-ONEPAGE_MENU_ANIMATION_DESC" >
-					<option value="jump">TPL_NOK-ONEPAGE_MENU_ANIMATION_JUMP</option>
-					<option value="scroll">TPL_NOK-ONEPAGE_MENU_ANIMATION_SCROLL</option>
+					label="TPL_NOKONEPAGE_MENU_ANIMATION_LABEL"
+					description="TPL_NOKONEPAGE_MENU_ANIMATION_DESC" >
+					<option value="jump">TPL_NOKONEPAGE_MENU_ANIMATION_JUMP</option>
+					<option value="scroll">TPL_NOKONEPAGE_MENU_ANIMATION_SCROLL</option>
 				</field>
 			</fieldset>
 
-			<fieldset name="content" label="TPL_NOK-ONEPAGE_CONTENT_LABEL">
+			<fieldset name="content" label="TPL_NOKONEPAGE_CONTENT_LABEL">
 				<field name="contentBackgroundColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_CONTENT_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_CONTENT_BACKGROUND_COLOR_DESC" />
 				<field name="contentBackgroundOpacity"
 					type="integer" first="0" last="100" step="10" default="100"
-					label="TPL_NOK-ONEPAGE_OPACITY_LABEL"
-					description="TPL_NOK-ONEPAGE_OPACITY_DESC" />
+					label="TPL_NOKONEPAGE_OPACITY_LABEL"
+					description="TPL_NOKONEPAGE_OPACITY_DESC" />
 				<field name="contentBackgroundFile" class="" type="media" default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_FILE_LABEL"
-					description="TPL_NOK-ONEPAGE_CONTENT_BACKGROUND_FILE_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_FILE_LABEL"
+					description="TPL_NOKONEPAGE_CONTENT_BACKGROUND_FILE_DESC" />
 				<field name="contentBackgroundRepeat"
 					type="list"
 					default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_DESC" >
-					<option value="">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_UNDEF_LABEL</option>
-					<option value="repeat-x">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_X_LABEL</option>
-					<option value="repeat-y">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_Y_LABEL</option>
-					<option value="no-repeat">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_NOT_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_REPEAT_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_REPEAT_DESC" >
+					<option value="">TPL_NOKONEPAGE_BACKGROUND_REPEAT_UNDEF_LABEL</option>
+					<option value="repeat-x">TPL_NOKONEPAGE_BACKGROUND_REPEAT_X_LABEL</option>
+					<option value="repeat-y">TPL_NOKONEPAGE_BACKGROUND_REPEAT_Y_LABEL</option>
+					<option value="no-repeat">TPL_NOKONEPAGE_BACKGROUND_REPEAT_NOT_LABEL</option>
 				</field>
 				<field name="contentBackgroundAttachment"
 					type="list"
 					default="scroll"
-					label="TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_DESC" >
-					<option value="scroll">TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_SCROLL_LABEL</option>
-					<option value="fixed">TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_FIXED_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_DESC" >
+					<option value="scroll">TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_SCROLL_LABEL</option>
+					<option value="fixed">TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_FIXED_LABEL</option>
 				</field>
 				<field name="contentBackgroundPosition"
 					type="list"
 					default="top left"
-					label="TPL_NOK-ONEPAGE_BACKGROUND_POSITION_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_POSITION_DESC" >
-					<option value="top left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_LEFT_LABEL</option>
-					<option value="top center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_CENTER_LABEL</option>
-					<option value="top right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_RIGHT_LABEL</option>
-					<option value="center left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_LEFT_LABEL</option>
-					<option value="center center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_CENTER_LABEL</option>
-					<option value="center right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_RIGHT_LABEL</option>
-					<option value="bottom left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_LEFT_LABEL</option>
-					<option value="bottom center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_CENTER_LABEL</option>
-					<option value="bottom right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_RIGHT_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_POSITION_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_POSITION_DESC" >
+					<option value="top left">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_LEFT_LABEL</option>
+					<option value="top center">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_CENTER_LABEL</option>
+					<option value="top right">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_RIGHT_LABEL</option>
+					<option value="center left">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_LEFT_LABEL</option>
+					<option value="center center">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_CENTER_LABEL</option>
+					<option value="center right">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_RIGHT_LABEL</option>
+					<option value="bottom left">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_LEFT_LABEL</option>
+					<option value="bottom center">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_CENTER_LABEL</option>
+					<option value="bottom right">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_RIGHT_LABEL</option>
 				</field>
 				<field name="contentBorderType"
 					type="list"
 					default="none"
-					label="TPL_NOK-ONEPAGE_BORDER_TYPE_LABEL"
-					description="TPL_NOK-ONEPAGE_CONTENT_BORDER_TYPE_DESC" >
-					<option value="none">TPL_NOK-ONEPAGE_BORDER_TYPE_NONE</option>
-					<option value="hidden">TPL_NOK-ONEPAGE_BORDER_TYPE_HIDDEN</option>
-					<option value="dotted">TPL_NOK-ONEPAGE_BORDER_TYPE_DOTTED</option>
-					<option value="dashed">TPL_NOK-ONEPAGE_BORDER_TYPE_DASHED</option>
-					<option value="solid">TPL_NOK-ONEPAGE_BORDER_TYPE_SOLID</option>
-					<option value="double">TPL_NOK-ONEPAGE_BORDER_TYPE_DOUBLE</option>
-					<option value="groove">TPL_NOK-ONEPAGE_BORDER_TYPE_GROOVE</option>
-					<option value="ridge">TPL_NOK-ONEPAGE_BORDER_TYPE_RIDGE</option>
-					<option value="inset">TPL_NOK-ONEPAGE_BORDER_TYPE_INSET</option>
-					<option value="outset">TPL_NOK-ONEPAGE_BORDER_TYPE_OUTSET</option>
+					label="TPL_NOKONEPAGE_BORDER_TYPE_LABEL"
+					description="TPL_NOKONEPAGE_CONTENT_BORDER_TYPE_DESC" >
+					<option value="none">TPL_NOKONEPAGE_BORDER_TYPE_NONE</option>
+					<option value="hidden">TPL_NOKONEPAGE_BORDER_TYPE_HIDDEN</option>
+					<option value="dotted">TPL_NOKONEPAGE_BORDER_TYPE_DOTTED</option>
+					<option value="dashed">TPL_NOKONEPAGE_BORDER_TYPE_DASHED</option>
+					<option value="solid">TPL_NOKONEPAGE_BORDER_TYPE_SOLID</option>
+					<option value="double">TPL_NOKONEPAGE_BORDER_TYPE_DOUBLE</option>
+					<option value="groove">TPL_NOKONEPAGE_BORDER_TYPE_GROOVE</option>
+					<option value="ridge">TPL_NOKONEPAGE_BORDER_TYPE_RIDGE</option>
+					<option value="inset">TPL_NOKONEPAGE_BORDER_TYPE_INSET</option>
+					<option value="outset">TPL_NOKONEPAGE_BORDER_TYPE_OUTSET</option>
 				</field>
 				<field name="contentBorderSize"
 					type="integer" first="0" last="10" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_BORDER_SIZE_LABEL"
-					description="TPL_NOK-ONEPAGE_CONTENT_BORDER_SIZE_DESC" />
+					label="TPL_NOKONEPAGE_BORDER_SIZE_LABEL"
+					description="TPL_NOKONEPAGE_CONTENT_BORDER_SIZE_DESC" />
 				<field name="contentBorderColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_BORDER_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_CONTENT_BORDER_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BORDER_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_CONTENT_BORDER_COLOR_DESC" />
 			</fieldset>
 
-			<fieldset name="module" label="TPL_NOK-ONEPAGE_MODULE_LABEL">
+			<fieldset name="module" label="TPL_NOKONEPAGE_MODULE_LABEL">
 				<field name="moduleBackgroundColor" class="" type="color" default="#F5F5F5"
-					label="TPL_NOK-ONEPAGE_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_BACKGROUND_COLOR_DESC" />
 				<field name="moduleBackgroundOpacity"
 					type="integer" first="0" last="100" step="10" default="100"
-					label="TPL_NOK-ONEPAGE_OPACITY_LABEL"
-					description="TPL_NOK-ONEPAGE_OPACITY_DESC" />
+					label="TPL_NOKONEPAGE_OPACITY_LABEL"
+					description="TPL_NOKONEPAGE_OPACITY_DESC" />
 				<field name="moduleBorderType"
 					type="list"
 					default="none"
-					label="TPL_NOK-ONEPAGE_BORDER_TYPE_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_BORDER_TYPE_DESC" >
-					<option value="none">TPL_NOK-ONEPAGE_BORDER_TYPE_NONE</option>
-					<option value="hidden">TPL_NOK-ONEPAGE_BORDER_TYPE_HIDDEN</option>
-					<option value="dotted">TPL_NOK-ONEPAGE_BORDER_TYPE_DOTTED</option>
-					<option value="dashed">TPL_NOK-ONEPAGE_BORDER_TYPE_DASHED</option>
-					<option value="solid">TPL_NOK-ONEPAGE_BORDER_TYPE_SOLID</option>
-					<option value="double">TPL_NOK-ONEPAGE_BORDER_TYPE_DOUBLE</option>
-					<option value="groove">TPL_NOK-ONEPAGE_BORDER_TYPE_GROOVE</option>
-					<option value="ridge">TPL_NOK-ONEPAGE_BORDER_TYPE_RIDGE</option>
-					<option value="inset">TPL_NOK-ONEPAGE_BORDER_TYPE_INSET</option>
-					<option value="outset">TPL_NOK-ONEPAGE_BORDER_TYPE_OUTSET</option>
+					label="TPL_NOKONEPAGE_BORDER_TYPE_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_BORDER_TYPE_DESC" >
+					<option value="none">TPL_NOKONEPAGE_BORDER_TYPE_NONE</option>
+					<option value="hidden">TPL_NOKONEPAGE_BORDER_TYPE_HIDDEN</option>
+					<option value="dotted">TPL_NOKONEPAGE_BORDER_TYPE_DOTTED</option>
+					<option value="dashed">TPL_NOKONEPAGE_BORDER_TYPE_DASHED</option>
+					<option value="solid">TPL_NOKONEPAGE_BORDER_TYPE_SOLID</option>
+					<option value="double">TPL_NOKONEPAGE_BORDER_TYPE_DOUBLE</option>
+					<option value="groove">TPL_NOKONEPAGE_BORDER_TYPE_GROOVE</option>
+					<option value="ridge">TPL_NOKONEPAGE_BORDER_TYPE_RIDGE</option>
+					<option value="inset">TPL_NOKONEPAGE_BORDER_TYPE_INSET</option>
+					<option value="outset">TPL_NOKONEPAGE_BORDER_TYPE_OUTSET</option>
 				</field>
 				<field name="moduleBorderSize"
 					type="integer" first="0" last="10" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_BORDER_SIZE_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_BORDER_SIZE_DESC" />
+					label="TPL_NOKONEPAGE_BORDER_SIZE_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_BORDER_SIZE_DESC" />
 				<field name="moduleBorderColor" class="" type="color" default="#E3E3E3"
-					label="TPL_NOK-ONEPAGE_BORDER_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_BORDER_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BORDER_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_BORDER_COLOR_DESC" />
 				<field name="modulePaddingSize"
 					type="integer" first="0" last="30" step="1" default="19"
-					label="TPL_NOK-ONEPAGE_MODULE_PADDING_SIZE_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_PADDING_SIZE_DESC" />
+					label="TPL_NOKONEPAGE_MODULE_PADDING_SIZE_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_PADDING_SIZE_DESC" />
 				<field name="moduleTitleIcon" class="" type="media" default=""
-					label="TPL_NOK-ONEPAGE_MODULE_TITLE_ICON_FILE_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_TITLE_ICON_FILE_DESC" />
+					label="TPL_NOKONEPAGE_MODULE_TITLE_ICON_FILE_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_TITLE_ICON_FILE_DESC" />
 <!-- Not yet implemented
 					<field name="moduleTitleBackgroundFile" class="" type="media" default=""
-					label="TPL_NOK-ONEPAGE_MODULE_TITLE_BACKGROUND_FILE_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_TITLE_BACKGROUND_FILE_DESC" />
+					label="TPL_NOKONEPAGE_MODULE_TITLE_BACKGROUND_FILE_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_TITLE_BACKGROUND_FILE_DESC" />
 -->
 				<field name="moduleTitleDecoration" default="none"
 					type="list"
-					label="TPL_NOK-ONEPAGE_MODULE_TITLE_DECORATION_LABEL"
-					description="TPL_NOK-ONEPAGE_MODULE_TITLE_DECORATION_DESC" >
-					<option value="none">TPL_NOK-ONEPAGE_TEXT_DECORATION_NONE</option>
-					<option value="underline">TPL_NOK-ONEPAGE_TEXT_DECORATION_UNDERLINE</option>
-					<option value="overline">TPL_NOK-ONEPAGE_TEXT_DECORATION_OVERLINE</option>
-					<option value="line-through">TPL_NOK-ONEPAGE_TEXT_DECORATION_LINETHROUGH</option>
-					<option value="blink">TPL_NOK-ONEPAGE_TEXT_DECORATION_BLINK</option>
+					label="TPL_NOKONEPAGE_MODULE_TITLE_DECORATION_LABEL"
+					description="TPL_NOKONEPAGE_MODULE_TITLE_DECORATION_DESC" >
+					<option value="none">TPL_NOKONEPAGE_TEXT_DECORATION_NONE</option>
+					<option value="underline">TPL_NOKONEPAGE_TEXT_DECORATION_UNDERLINE</option>
+					<option value="overline">TPL_NOKONEPAGE_TEXT_DECORATION_OVERLINE</option>
+					<option value="line-through">TPL_NOKONEPAGE_TEXT_DECORATION_LINETHROUGH</option>
+					<option value="blink">TPL_NOKONEPAGE_TEXT_DECORATION_BLINK</option>
 				</field>
 			</fieldset>
 
-			<fieldset name="footer" label="TPL_NOK-ONEPAGE_FOOTER_LABEL">
+			<fieldset name="footer" label="TPL_NOKONEPAGE_FOOTER_LABEL">
 				<field name="footerBackgroundColor" class="" type="color" default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_FOOTER_BACKGROUND_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_FOOTER_BACKGROUND_COLOR_DESC" />
 				<field name="footerBackgroundOpacity"
 					type="integer" first="0" last="100" step="10" default="100"
-					label="TPL_NOK-ONEPAGE_OPACITY_LABEL"
-					description="TPL_NOK-ONEPAGE_OPACITY_DESC" />
+					label="TPL_NOKONEPAGE_OPACITY_LABEL"
+					description="TPL_NOKONEPAGE_OPACITY_DESC" />
 				<field name="footerBackgroundFile" class="" type="media" default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_FILE_LABEL"
-					description="TPL_NOK-ONEPAGE_FOOTER_BACKGROUND_FILE_DESC" />
+					label="TPL_NOKONEPAGE_BACKGROUND_FILE_LABEL"
+					description="TPL_NOKONEPAGE_FOOTER_BACKGROUND_FILE_DESC" />
 				<field name="footerBackgroundRepeat"
 					type="list"
 					default=""
-					label="TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_DESC" >
-					<option value="">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_UNDEF_LABEL</option>
-					<option value="repeat-x">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_X_LABEL</option>
-					<option value="repeat-y">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_Y_LABEL</option>
-					<option value="no-repeat">TPL_NOK-ONEPAGE_BACKGROUND_REPEAT_NOT_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_REPEAT_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_REPEAT_DESC" >
+					<option value="">TPL_NOKONEPAGE_BACKGROUND_REPEAT_UNDEF_LABEL</option>
+					<option value="repeat-x">TPL_NOKONEPAGE_BACKGROUND_REPEAT_X_LABEL</option>
+					<option value="repeat-y">TPL_NOKONEPAGE_BACKGROUND_REPEAT_Y_LABEL</option>
+					<option value="no-repeat">TPL_NOKONEPAGE_BACKGROUND_REPEAT_NOT_LABEL</option>
 				</field>
 				<field name="footerBackgroundAttachment"
 					type="list"
 					default="scroll"
-					label="TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_DESC" >
-					<option value="scroll">TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_SCROLL_LABEL</option>
-					<option value="fixed">TPL_NOK-ONEPAGE_BACKGROUND_ATTACHMENT_FIXED_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_DESC" >
+					<option value="scroll">TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_SCROLL_LABEL</option>
+					<option value="fixed">TPL_NOKONEPAGE_BACKGROUND_ATTACHMENT_FIXED_LABEL</option>
 				</field>
 				<field name="footerBackgroundPosition"
 					type="list"
 					default="top left"
-					label="TPL_NOK-ONEPAGE_BACKGROUND_POSITION_LABEL"
-					description="TPL_NOK-ONEPAGE_BACKGROUND_POSITION_DESC" >
-					<option value="top left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_LEFT_LABEL</option>
-					<option value="top center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_CENTER_LABEL</option>
-					<option value="top right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_TOP_RIGHT_LABEL</option>
-					<option value="center left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_LEFT_LABEL</option>
-					<option value="center center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_CENTER_LABEL</option>
-					<option value="center right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_CENTER_RIGHT_LABEL</option>
-					<option value="bottom left">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_LEFT_LABEL</option>
-					<option value="bottom center">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_CENTER_LABEL</option>
-					<option value="bottom right">TPL_NOK-ONEPAGE_BACKGROUND_POSITION_BOTTOM_RIGHT_LABEL</option>
+					label="TPL_NOKONEPAGE_BACKGROUND_POSITION_LABEL"
+					description="TPL_NOKONEPAGE_BACKGROUND_POSITION_DESC" >
+					<option value="top left">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_LEFT_LABEL</option>
+					<option value="top center">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_CENTER_LABEL</option>
+					<option value="top right">TPL_NOKONEPAGE_BACKGROUND_POSITION_TOP_RIGHT_LABEL</option>
+					<option value="center left">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_LEFT_LABEL</option>
+					<option value="center center">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_CENTER_LABEL</option>
+					<option value="center right">TPL_NOKONEPAGE_BACKGROUND_POSITION_CENTER_RIGHT_LABEL</option>
+					<option value="bottom left">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_LEFT_LABEL</option>
+					<option value="bottom center">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_CENTER_LABEL</option>
+					<option value="bottom right">TPL_NOKONEPAGE_BACKGROUND_POSITION_BOTTOM_RIGHT_LABEL</option>
 				</field>
 				<field name="footerBorderType"
 					type="list"
 					default="none"
-					label="TPL_NOK-ONEPAGE_BORDER_TYPE_LABEL"
-					description="TPL_NOK-ONEPAGE_FOOTER_BORDER_TYPE_DESC" >
-					<option value="none">TPL_NOK-ONEPAGE_BORDER_TYPE_NONE</option>
-					<option value="hidden">TPL_NOK-ONEPAGE_BORDER_TYPE_HIDDEN</option>
-					<option value="dotted">TPL_NOK-ONEPAGE_BORDER_TYPE_DOTTED</option>
-					<option value="dashed">TPL_NOK-ONEPAGE_BORDER_TYPE_DASHED</option>
-					<option value="solid">TPL_NOK-ONEPAGE_BORDER_TYPE_SOLID</option>
-					<option value="double">TPL_NOK-ONEPAGE_BORDER_TYPE_DOUBLE</option>
-					<option value="groove">TPL_NOK-ONEPAGE_BORDER_TYPE_GROOVE</option>
-					<option value="ridge">TPL_NOK-ONEPAGE_BORDER_TYPE_RIDGE</option>
-					<option value="inset">TPL_NOK-ONEPAGE_BORDER_TYPE_INSET</option>
-					<option value="outset">TPL_NOK-ONEPAGE_BORDER_TYPE_OUTSET</option>
+					label="TPL_NOKONEPAGE_BORDER_TYPE_LABEL"
+					description="TPL_NOKONEPAGE_FOOTER_BORDER_TYPE_DESC" >
+					<option value="none">TPL_NOKONEPAGE_BORDER_TYPE_NONE</option>
+					<option value="hidden">TPL_NOKONEPAGE_BORDER_TYPE_HIDDEN</option>
+					<option value="dotted">TPL_NOKONEPAGE_BORDER_TYPE_DOTTED</option>
+					<option value="dashed">TPL_NOKONEPAGE_BORDER_TYPE_DASHED</option>
+					<option value="solid">TPL_NOKONEPAGE_BORDER_TYPE_SOLID</option>
+					<option value="double">TPL_NOKONEPAGE_BORDER_TYPE_DOUBLE</option>
+					<option value="groove">TPL_NOKONEPAGE_BORDER_TYPE_GROOVE</option>
+					<option value="ridge">TPL_NOKONEPAGE_BORDER_TYPE_RIDGE</option>
+					<option value="inset">TPL_NOKONEPAGE_BORDER_TYPE_INSET</option>
+					<option value="outset">TPL_NOKONEPAGE_BORDER_TYPE_OUTSET</option>
 				</field>
 				<field name="footerBorderSize"
 					type="integer" first="0" last="10" step="1" default="0"
-					label="TPL_NOK-ONEPAGE_BORDER_SIZE_LABEL"
-					description="TPL_NOK-ONEPAGE_FOOTER_BORDER_SIZE_DESC" />
+					label="TPL_NOKONEPAGE_BORDER_SIZE_LABEL"
+					description="TPL_NOKONEPAGE_FOOTER_BORDER_SIZE_DESC" />
 				<field name="footerBorderColor" class="" type="color" default="#000000"
-					label="TPL_NOK-ONEPAGE_BORDER_COLOR_LABEL"
-					description="TPL_NOK-ONEPAGE_FOOTER_BORDER_COLOR_DESC" />
+					label="TPL_NOKONEPAGE_BORDER_COLOR_LABEL"
+					description="TPL_NOKONEPAGE_FOOTER_BORDER_COLOR_DESC" />
 			</fieldset>
 
-			<fieldset name="css" label="TPL_NOK-ONEPAGE_CSS_LABEL">
+			<fieldset name="css" label="TPL_NOKONEPAGE_CSS_LABEL">
 				<field name="cssTemplate" type="textarea" default="" rows="10" cols="80"
-					label="TPL_NOK-ONEPAGE_CSS_TEMPLATE_LABEL"
-					description="TPL_NOK-ONEPAGE_CSS_TEMPLATE_DESC" />
+					label="TPL_NOKONEPAGE_CSS_TEMPLATE_LABEL"
+					description="TPL_NOKONEPAGE_CSS_TEMPLATE_DESC" />
 				<field name="cssPage" type="textarea" default="" rows="10" cols="80"
-					label="TPL_NOK-ONEPAGE_CSS_PAGE_LABEL"
-					description="TPL_NOK-ONEPAGE_CSS_PAGE_DESC" />
+					label="TPL_NOKONEPAGE_CSS_PAGE_LABEL"
+					description="TPL_NOKONEPAGE_CSS_PAGE_DESC" />
 			</fieldset>
 		</fields>
 	</config>
 	<updateservers>
-		<server type="extension" priority="2" name="NoK OnePage Updates">http://kuem.in/joomlaupdate/tpl_nokonepage.xml</server>
+		<server type="extension" priority="2" name="TPL_NOKONEPAGE_APP_UPDATE">http://kuem.in/joomlaupdate/tpl_nokonepage.xml</server>
 	</updateservers>
 </extension>
