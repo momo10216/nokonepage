@@ -1,4 +1,5 @@
 ToDo:
+- Allow other units than px for menu font size (pt, em, ...)
 - Specify Background image together with icon (use separator). See https://stackoverflow.com/questions/24103068/html-css-text-overlay-on-a-background-image#24103130 & https://stackoverflow.com/questions/600743/how-to-get-div-height-to-auto-adjust-to-background-size#22211990
 - padding-left
 From Fabi:

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="3.1" type="template" client="site" method="upgrade">
-	<name>TPL_NOKONEPAGE</name>
+	<name>NOKONEPAGE</name>
 	<version>1.2.2</version>
 	<creationDate>06/19/2017</creationDate>
 	<author>Norbert Kuemin</author>
@@ -33,10 +33,10 @@
 		<position>onepage-6</position>
 	</positions>
 	<languages folder="language">
-		<language tag="en-GB">en-GB/en-GB.tpl_nok-onepage.ini</language>
-		<language tag="en-GB">en-GB/en-GB.tpl_nok-onepage.sys.ini</language>
-		<language tag="de-DE">de-DE/de-DE.tpl_nok-onepage.ini</language>
-		<language tag="de-DE">de-DE/de-DE.tpl_nok-onepage.sys.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_nokonepage.ini</language>
+		<language tag="en-GB">en-GB/en-GB.tpl_nokonepage.sys.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_nokonepage.ini</language>
+		<language tag="de-DE">de-DE/de-DE.tpl_nokonepage.sys.ini</language>
 	</languages>
 	<config>
 		<fields name="params">

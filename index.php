@@ -50,6 +50,7 @@ function displayMenu($menuItems, $animation) {
 		echo '</pre>';
 	}
 ?>
+<div class="onepage-anchor"><a name="_menu"></a></div>
 <nav class="navigation" role="navigation">
 	<div class="navbar">
 		<div class="navbar-inner">
@@ -265,7 +266,7 @@ $this->language = $doc->language;
 $this->direction = $doc->direction;
 $menuIcon = '&#9776;';
 if (!empty($this->params->get('menuIconFile'))) {
-	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_("TPL_NOK-ONEPAGE_MENUICON_ALT_TEXT"), array('class'=>'backtomenuiconimage'));
+	$menuIcon = JHtml::_('image', $this->params->get('menuIconFile'), JText::_('TPL_NOKONEPAGE_MENUICON_ALT_TEXT'), array('class'=>'backtomenuiconimage'));
 }
 // Detecting Active Variables
 $option   = $app->input->getCmd('option', '');
@@ -375,20 +376,13 @@ $span = "span12";
 	<!-- Body -->
 	<div class="body" name="top">
 		<div class="container<?php echo ($params->get('containerType') ? '-fluid' : '');?>">
-			<div class="onepage-anchor"><a name="_top"></a></div>
-			<div class="backtomenuicon"><?php echo calcMenuLink('_top', $menuIcon, $this->params->get('menuAnimation')); ?></div>
+			<div class="backtomenuicon"><?php echo calcMenuLink('_menu', $menuIcon, $this->params->get('menuAnimation')); ?></div>
 			<?php if ($showTop) : ?>
 			<!-- Header -->
 			<header class="header" role="banner">
-				<div class="header-inner clearfix">
-					<?php if ($this->countModules('position-0')) : ?>
-					<div class="header-search pull-right">
-						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
-						<jdoc:include type="modules" name="onepage-0" style="none" />
-						<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
-					</div>
-					<?php endif; ?>
-				</div>
+				<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
+				<jdoc:include type="modules" name="onepage-0" style="none" />
+				<?php if (($menuPosition == '0') && ($menuPositionFirstLast == 'last')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>
 				<div id="top">
 					<div id="top-left">
 						<?php if (($menuPosition == '1') && ($menuPositionFirstLast == 'first')) { displayMenu($menuItems, $this->params->get('menuAnimation')); } ?>

@@ -235,3 +235,4 @@ function pagination_item_inactive(&$item)
 	// Doesn't match any other condition, render a normal item
 	return '<li class="disabled hidden-phone"><a>' . $item->text . '</a></li>';
 }
+?>
